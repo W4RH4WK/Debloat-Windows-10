@@ -2,6 +2,7 @@
 # This script redirects telemetry related domains to your nowhere using the 
 # hosts file.
 
+echo "Adding telemetry routes to hosts file"
 $hosts = "0.0.0.0 vortex.data.microsoft.com
 0.0.0.0 vortex-win.data.microsoft.com
 0.0.0.0 telecommand.telemetry.microsoft.com
@@ -54,5 +55,16 @@ $hosts = "0.0.0.0 vortex.data.microsoft.com
 0.0.0.0 feedback.windows.com
 0.0.0.0 feedback.microsoft-hohm.com
 0.0.0.0 feedback.search.microsoft.com"
-
 echo $hosts >> "$env:systemroot\System32\drivers\etc\hosts"
+
+echo "Disabling telemetry via Group Policies"
+$reg = @"
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"@
+$regfile = "$env:windir\Temp\registry.reg"
+$reg | Out-File $regfile
+regedit /s $regfile
+rm $regfile
