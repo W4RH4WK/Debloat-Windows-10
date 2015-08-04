@@ -1,6 +1,9 @@
 #	Description:
 # This script will try to fix many of the privacy settings for the user.
 
+echo "Defuse Windows search settings"
+Set-WindowsSearchSetting -EnableWebResultsSetting $false
+
 echo "Disable synchronisation of settings"
 $reg = @"
 Windows Registry Editor Version 5.00
