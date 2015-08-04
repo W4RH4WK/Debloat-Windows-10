@@ -31,5 +31,8 @@ $reg | Out-File $regfile
 regedit /s $regfile
 rm $regfile
 
+echo "Removing startmenu entry"
+rm "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
+
 echo "Restarting explorer"
 start "explorer.exe"
