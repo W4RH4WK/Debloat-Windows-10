@@ -2,7 +2,8 @@
 # This script will remove and disable OneDrive integration.
 
 echo "Kill OneDrive process"
-kill "OneDrive.exe"
+taskkill.exe /F /IM "OneDrive.exe"
+taskkill.exe /F /IM "explorer.exe"
 
 echo "Remove OneDrive"
 if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
@@ -29,3 +30,6 @@ $regfile = "$env:windir\Temp\registry.reg"
 $reg | Out-File $regfile
 regedit /s $regfile
 rm $regfile
+
+echo "Restarting explorer"
+start "explorer.exe"
