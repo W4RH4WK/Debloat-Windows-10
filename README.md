@@ -7,10 +7,10 @@ I personally find the state Windows 10 comes in quite shocking / scary and want
 to have very slim, scriptable solution to remove and disable Windows 10's
 features most people do not need nor want.
 
-The scripts provided consists of Powershell scripts and Registry keys, you
-should have no problems altering and using them to fit your needs. Do not
-forget to set the execution policy for Powershell scripts. And of course, how
-have to run them with administrative priveledges.
+The scripts provided consists of Powershell scripts, you should have no
+problems altering and using them to fit your needs. Do not forget to set the
+execution policy for Powershell scripts. And of course, how have to run them
+with administrative priveledges.
 
     PS> Set-ExecutionPolicy RemoteSigned
 
