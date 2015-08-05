@@ -22,6 +22,17 @@ execution policy set to bypass.
 Look at the scripts most of them are only a couple of lines long and it should
 be pretty obvious what they are doing.
 
+## Privacy Settings
+
+I am also working on a script which sets the privacy settings of the current
+user. This is work in progress and far from being complete. I will try to keep
+them up-to-date as good as possible but do not rely on them since they may be
+outdated.
+
+## Liability
+
+**All scripts are provided as is and you agree to use them at your own risk.**
+
 ## Contribute
 
 I would be happy to extend the collection of scripts. Just open an issue or
