@@ -10,9 +10,14 @@ features most people do not need nor want.
 The scripts provided consists of Powershell scripts, you should have no
 problems altering and using them to fit your needs. Do not forget to set the
 execution policy for Powershell scripts. And of course, how have to run them
-with administrative priveledges.
+with administrative privileges.
 
-    PS> Set-ExecutionPolicy RemoteSigned
+    PS> Set-ExecutionPolicy Unrestricted
+
+Alternatively you can run the script as an argument to Powershell with
+execution policy set to bypass.
+
+    C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
 
 Look at the scripts most of them are only a couple of lines long and it should
 be pretty obvious what they are doing.
