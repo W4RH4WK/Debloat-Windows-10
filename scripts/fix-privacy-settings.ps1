@@ -4,6 +4,33 @@
 echo "Defuse Windows search settings"
 Set-WindowsSearchSetting -EnableWebResultsSetting $false
 
+echo "Set general privacy options"
+$reg = @"
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\International\User Profile]
+"HttpAcceptLanguageOptOut"=dword:00000001
+
+[HKEY_CURRENT_USER\Printers\Defaults]
+"NetID"="{00000000-0000-0000-0000-000000000000}"
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input]
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input\TIPC]
+"Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+"Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"=dword:00000000
+
+"@
+$regfile = "$env:windir\Temp\registry.reg"
+$reg | Out-File $regfile
+regedit /s $regfile
+rm $regfile
+
 echo "Disable synchronisation of settings"
 $reg = @"
 Windows Registry Editor Version 5.00
