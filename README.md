@@ -31,7 +31,7 @@ outdated.
 
 ## Liability
 
-**All scripts are provided as is and you agree to use them at your own risk.**
+**All scripts are provided as is and you use them at your own risk.**
 
 ## Contribute
 
