@@ -22,6 +22,9 @@ execution policy set to bypass.
 Look at the scripts most of them are only a couple of lines long and it should
 be pretty obvious what they are doing.
 
+I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
+Please let me know if you encounter any issues with other Windows versions.
+
 ## Privacy Settings
 
 I am also working on a script which sets the privacy settings of the current
