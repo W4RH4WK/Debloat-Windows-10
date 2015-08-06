@@ -13,5 +13,5 @@ Windows Registry Editor Version 5.00
 "@
 $regfile = "$env:windir\Temp\registry.reg"
 $reg | Out-File $regfile
-regedit /s $regfile
+Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
 rm $regfile
