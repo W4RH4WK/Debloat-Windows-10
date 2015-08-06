@@ -1,5 +1,6 @@
 #	Description:
-# This script will try to fix many of the privacy settings for the user.
+# This script will try to fix many of the privacy settings for the user. This
+# is work in progress!
 
 echo "Defuse Windows search settings"
 Set-WindowsSearchSetting -EnableWebResultsSetting $false
