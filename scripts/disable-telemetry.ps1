@@ -1,6 +1,6 @@
 #   Description:
-# This script redirects telemetry related domains to your nowhere using the 
-# hosts file.
+# This script redirects telemetry related domains to your nowhere using the
+# hosts file. Additionally telemetry is disallows via Group Policies.
 
 echo "Adding telemetry routes to hosts file"
 $hosts = @"
@@ -8,9 +8,9 @@ $hosts = @"
 0.0.0.0 137.116.81.24
 0.0.0.0 204.79.197.200
 0.0.0.0 23.218.212.69
-0.0.0.0 23.218.212.69 
+0.0.0.0 23.218.212.69
 0.0.0.0 65.39.117.230
-0.0.0.0 65.55.108.23 
+0.0.0.0 65.55.108.23
 0.0.0.0 a-0001.a-msedge.net
 0.0.0.0 choice.microsoft.com
 0.0.0.0 choice.microsoft.com.nsatc.net
