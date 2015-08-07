@@ -263,7 +263,7 @@ regimport(@"
 "InitialAppValue"="Unspecified"
 "@)
 
-echo "Disable location (?) sensor"
+echo "Disable location sensor"
 regimport(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor]
 
@@ -271,4 +271,11 @@ regimport(@"
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}]
 "SensorPermissionState"=dword:00000000
+"@)
+
+echo "Disable submission of Windows Defender findings"
+regimport(@"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
+"SpyNetReporting"=dword:00000000
+"SubmitSamplesConsent"=dword:00000000
 "@)
