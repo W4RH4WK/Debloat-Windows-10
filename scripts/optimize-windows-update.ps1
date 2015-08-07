@@ -1,7 +1,6 @@
 #   Description:
-# This script disables automatic downloading and installation of Windows
-# updates via Group Policies. Additinally seeding updates to other computers is
-# disables.
+# This script optimizes Windows updates by disabling automatic download and
+# seeding updates to other computers.
 
 echo "Disable automatic download and installation of Windows updates"
 $reg = @"
