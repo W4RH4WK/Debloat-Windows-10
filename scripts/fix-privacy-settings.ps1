@@ -279,3 +279,11 @@ regimport(@"
 "SpyNetReporting"=dword:00000000
 "SubmitSamplesConsent"=dword:00000000
 "@)
+
+echo "Do not share wifi networks"
+$user = New-Object System.Security.Principal.NTAccount($env:UserName)
+$sid = $user.Translate([System.Security.Principal.SecurityIdentifier]).value
+regimport(@"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\features\$sid]
+"FeatureStates"=dword:0000033c
+"@)
