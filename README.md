@@ -28,9 +28,8 @@ Please let me know if you encounter any issues with other Windows versions.
 ## Privacy Settings
 
 I am also working on a script which sets the privacy settings of the current
-user. This is work in progress and far from being complete. I will try to keep
-them up-to-date as good as possible but do not rely on them since they may be
-outdated.
+user. I will try to keep them up-to-date as good as possible but do not rely on
+them since they may be outdated.
 
 ## Liability
 
