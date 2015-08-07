@@ -1,4 +1,4 @@
-#	Description:
+#   Description:
 # This script will remove and disable OneDrive integration.
 
 echo "Kill OneDrive process"
@@ -7,10 +7,10 @@ taskkill.exe /F /IM "explorer.exe"
 
 echo "Remove OneDrive"
 if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
-	& "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
+    & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
 }
 if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
-	& "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
+    & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
 }
 
 echo "Removing OneDrive leftovers"

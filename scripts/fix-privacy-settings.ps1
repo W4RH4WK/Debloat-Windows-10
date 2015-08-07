@@ -1,4 +1,4 @@
-#	Description:
+#   Description:
 # This script will try to fix many of the privacy settings for the user. This
 # is work in progress!
 

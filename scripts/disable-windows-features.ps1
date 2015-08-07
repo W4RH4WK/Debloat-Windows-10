@@ -3,10 +3,10 @@
 # disable certain features comment out the corresponding lines below.
 
 $features = @(
-	"Internet-Explorer-Optional-amd64"
-	"MediaPlayback"
-	"WindowsMediaPlayer"
-	"WorkFolders-Client"
+    "Internet-Explorer-Optional-amd64"
+    "MediaPlayback"
+    "WindowsMediaPlayer"
+    "WorkFolders-Client"
 )
 
 Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName $features
