@@ -3,7 +3,7 @@
 # is work in progress!
 
 
-function regimport($reg) {
+function Import-Registry($reg) {
     # add reg file hander
     $reg = "Windows Registry Editor Version 5.00`r`n`r`n" + $reg
 
@@ -14,42 +14,62 @@ function regimport($reg) {
     rm $regfile
 }
 
+function Takeown-Registry($key) {
+    # TODO works only for LocalMachine for now
+    $key = $key.substring(19)
+
+    # set owner
+    $key = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows Defender\Spynet", "ReadWriteSubTree", "TakeOwnership")
+    $owner = [Security.Principal.NTAccount]"Administrators"
+    $acl = $key.GetAccessControl()
+    $acl.SetOwner($owner)
+    $key.SetAccessControl($acl)
+
+    # set FullControl
+    $acl = $key.GetAccessControl()
+    $rule = New-Object System.Security.AccessControl.RegistryAccessRule("Administrators", "FullControl", "Allow")
+    $acl.SetAccessRule($rule)
+    $key.SetAccessControl($acl)
+}
+
 function Enable-Privilege {
     param($Privilege)
     $Definition = @"
     using System;
     using System.Runtime.InteropServices;
+
     public class AdjPriv {
         [DllImport("advapi32.dll", ExactSpelling = true, SetLastError = true)]
-            internal static extern bool AdjustTokenPrivileges(IntPtr htok, bool disall,
-                    ref TokPriv1Luid newst, int len, IntPtr prev, IntPtr rele);
+            internal static extern bool AdjustTokenPrivileges(IntPtr htok, bool disall, ref TokPriv1Luid newst, int len, IntPtr prev, IntPtr rele);
+
         [DllImport("advapi32.dll", ExactSpelling = true, SetLastError = true)]
             internal static extern bool OpenProcessToken(IntPtr h, int acc, ref IntPtr phtok);
+
         [DllImport("advapi32.dll", SetLastError = true)]
-            internal static extern bool LookupPrivilegeValue(string host, string name,
-                    ref long pluid);
+            internal static extern bool LookupPrivilegeValue(string host, string name, ref long pluid);
+
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
             internal struct TokPriv1Luid {
                 public int Count;
                 public long Luid;
                 public int Attr;
             }
+
         internal const int SE_PRIVILEGE_ENABLED = 0x00000002;
         internal const int TOKEN_QUERY = 0x00000008;
         internal const int TOKEN_ADJUST_PRIVILEGES = 0x00000020;
+
         public static bool EnablePrivilege(long processHandle, string privilege) {
             bool retVal;
             TokPriv1Luid tp;
             IntPtr hproc = new IntPtr(processHandle);
             IntPtr htok = IntPtr.Zero;
-            retVal = OpenProcessToken(hproc, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY,
-                    ref htok);
+            retVal = OpenProcessToken(hproc, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, ref htok);
             tp.Count = 1;
             tp.Luid = 0;
             tp.Attr = SE_PRIVILEGE_ENABLED;
             retVal = LookupPrivilegeValue(null, privilege, ref tp.Luid);
-            retVal = AdjustTokenPrivileges(htok, false, ref tp, 0, IntPtr.Zero,
-                    IntPtr.Zero);
+            retVal = AdjustTokenPrivileges(htok, false, ref tp, 0, IntPtr.Zero, IntPtr.Zero);
             return retVal;
         }
     }
@@ -60,11 +80,14 @@ function Enable-Privilege {
 }
 
 
+echo "Elevating priviledges for this process"
+do {} until (Enable-Privilege SeTakeOwnershipPrivilege)
+
 echo "Defuse Windows search settings"
 Set-WindowsSearchSetting -EnableWebResultsSetting $false
 
 echo "Set general privacy options"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\Control Panel\International\User Profile]
 "HttpAcceptLanguageOptOut"=dword:00000001
 
@@ -84,7 +107,7 @@ regimport(@"
 "@)
 
 echo "Disable synchronisation of settings"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync]
 "BackupPolicy"=dword:0000003c
 "DeviceMetadataUploaded"=dword:00000000
@@ -138,7 +161,7 @@ regimport(@"
 "@)
 
 echo "Set privacy policy accepted state to 0"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Personalization]
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Personalization\Settings]
@@ -146,13 +169,13 @@ regimport(@"
 "@)
 
 echo "Do not scan contact informations"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore]
 "HarvestContacts"=dword:00000000
 "@)
 
 echo "Disable background access of default apps"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Office.OneNote_17.4229.10061.0_x64__8wekyb3d8bbwe]
 "Disabled"=dword:00000001
 
@@ -212,7 +235,7 @@ regimport(@"
 "@)
 
 echo "Denying device access"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess]
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global]
@@ -309,7 +332,7 @@ regimport(@"
 "@)
 
 echo "Disable location sensor"
-regimport(@"
+Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor]
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions]
@@ -319,19 +342,8 @@ regimport(@"
 "@)
 
 echo "Disable submission of Windows Defender findings"
-do {} until (Enable-Privilege SeTakeOwnershipPrivilege)
-$key = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows Defender\Spynet", "ReadWriteSubTree", "TakeOwnership")
-$owner = [Security.Principal.NTAccount]"Administrators"
-$acl = $key.GetAccessControl()
-$acl.SetOwner($owner)
-$key.SetAccessControl($acl)
-
-$acl = $key.GetAccessControl()
-$rule = New-Object System.Security.AccessControl.RegistryAccessRule("Administrators", "FullControl", "Allow")
-$acl.SetAccessRule($rule)
-$key.SetAccessControl($acl)
-
-regimport(@"
+Takeown-Registry("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet")
+Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
 "SpyNetReporting"=dword:00000000
 "SubmitSamplesConsent"=dword:00000000
@@ -340,7 +352,7 @@ regimport(@"
 echo "Do not share wifi networks"
 $user = New-Object System.Security.Principal.NTAccount($env:UserName)
 $sid = $user.Translate([System.Security.Principal.SecurityIdentifier]).value
-regimport(@"
+Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\features\$sid]
 "FeatureStates"=dword:0000033c
 "@)
