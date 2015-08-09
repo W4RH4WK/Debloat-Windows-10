@@ -3,6 +3,13 @@
 This project is an effort to collect scripts which help *debloating* Windows
 10.
 
+## Download Latest Release
+
+- [Debloat-Windows-10 v0.1 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.1.zip)
+- [Debloat-Windows-10 v0.1 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.1.tar.gz)
+
+## Description
+
 I personally find the state Windows 10 comes in quite shocking / scary and want
 to have very quick, scriptable solution to remove and disable Windows 10's
 *features* most people do not need nor want anyway.
