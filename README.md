@@ -4,13 +4,13 @@ This project is an effort to collect scripts which help *debloating* Windows
 10.
 
 I personally find the state Windows 10 comes in quite shocking / scary and want
-to have very slim, scriptable solution to remove and disable Windows 10's
-features most people do not need nor want.
+to have very quick, scriptable solution to remove and disable Windows 10's
+*features* most people do not need nor want anyway.
 
-The scripts provided consists of Powershell scripts, you should have no
-problems altering and using them to fit your needs. Do not forget to set the
-execution policy for Powershell scripts. And of course, how have to run them
-with administrative privileges.
+You should have no problems using the provided Powershell scripts or altering
+them to fit your needs. Do not forget to set the execution policy for
+Powershell scripts. And of course, you have to run them with administrative
+privileges.
 
     PS> Set-ExecutionPolicy Unrestricted
 
@@ -19,17 +19,20 @@ execution policy set to bypass.
 
     C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
 
-Look at the scripts most of them are only a couple of lines long and it should
-be pretty obvious what they are doing.
+Look at the scripts, most of them are only a couple of lines long and it should
+be pretty obvious what they do.
 
 I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
-Please let me know if you encounter any issues with other Windows versions.
+Please let me know if you encounter any issues with other Windows 10 versions.
 
 ## Privacy Settings
 
 I am also working on a script which sets the privacy settings of the current
-user. I will try to keep them up-to-date as good as possible but do not rely on
+user. I will try to keep it up-to-date as good as possible but do not rely on
 them since they may be outdated.
+
+If you find a certain setting which should be set in the stated script, let me
+know.
 
 ## Liability
 
