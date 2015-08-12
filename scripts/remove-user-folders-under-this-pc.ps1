@@ -1,12 +1,12 @@
 #   Description:
 # This script will remove user folder from displaying under "This PC"
-# in File Exlorer. If you do not want to disable certain user folders
+# in File Exlorer. If you do not want to remove certain user folders
 # comment out the corresponding lines below.
 
-echo "Removing user folders under This PC"
-$reg = @"
-Windows Registry Editor Version 5.00
+Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
 
+echo "Removing user folders under This PC"
+Import-Registry(@"
 ; Remove Desktop From This PC
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}]
@@ -35,8 +35,4 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A0953C92-50DC-43bf-BE83-3742FED03C9C}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}]
-"@
-$regfile = "$env:windir\Temp\registry.reg"
-$reg | Out-File $regfile
-Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
-rm $regfile
+"@)
