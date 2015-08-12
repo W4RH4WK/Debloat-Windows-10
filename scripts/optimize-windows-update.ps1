@@ -17,12 +17,12 @@ $reg | Out-File $regfile
 Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
 rm $regfile
 
-echo "Disable seeding of updates to other computers"
+echo "Disable seeding of updates to other computers via Group Policies"
 $reg = @"
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization]
-"SystemSettingsDownloadMode"=dword:00000003
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
+"DODownloadMode"=dword:00000000
 "@
 $regfile = "$env:windir\Temp\registry.reg"
 $reg | Out-File $regfile
