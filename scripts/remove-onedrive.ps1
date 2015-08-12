@@ -1,6 +1,8 @@
 #   Description:
 # This script will remove and disable OneDrive integration.
 
+Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
+
 echo "Kill OneDrive process"
 taskkill.exe /F /IM "OneDrive.exe"
 taskkill.exe /F /IM "explorer.exe"
@@ -20,16 +22,10 @@ rm -r -Force "$env:userprofile\OneDrive"
 rm -r -Force "C:\OneDriveTemp"
 
 echo "Disable OneDrive via Group Policies"
-$reg = @"
-Windows Registry Editor Version 5.00
-
+Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive]
 "DisableFileSyncNGSC"=dword:00000001
-"@
-$regfile = "$env:windir\Temp\registry.reg"
-$reg | Out-File $regfile
-Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
-rm $regfile
+"@)
 
 echo "Removing startmenu entry"
 rm "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"

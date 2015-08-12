@@ -2,6 +2,8 @@
 # This script redirects telemetry related domains to your nowhere using the
 # hosts file. Additionally telemetry is disallows via Group Policies.
 
+Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
+
 echo "Adding telemetry routes to hosts file"
 $hosts = @"
 0.0.0.0 134.170.30.202
@@ -56,17 +58,11 @@ $hosts = @"
 0.0.0.0 watson.telemetry.microsoft.com
 0.0.0.0 watson.telemetry.microsoft.com.nsatc.net
 0.0.0.0 wes.df.telemetry.microsoft.com
-"@
+"@)
 echo $hosts >> "$env:systemroot\System32\drivers\etc\hosts"
 
 echo "Disabling telemetry via Group Policies"
-$reg = @"
-Windows Registry Editor Version 5.00
-
+Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
 "AllowTelemetry"=dword:00000000
-"@
-$regfile = "$env:windir\Temp\registry.reg"
-$reg | Out-File $regfile
-Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
-rm $regfile
+"@)
