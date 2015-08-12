@@ -26,7 +26,7 @@ $Scripts = Get-ChildItem $ScriptsPath |
     Where-Object { $_.Extension -eq '.ps1' } |
     ForEach-Object { $_.BaseName}
 
-Import-Module $PSScriptRoot\lib\CLIAid.psm1
+Import-Module $PSScriptRoot\lib\run-helper.psm1
 
 $on = $true
 while ($on) {
