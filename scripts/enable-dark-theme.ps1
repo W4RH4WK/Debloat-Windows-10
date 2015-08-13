@@ -4,6 +4,7 @@
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
+echo "Enabling dark theme"
 Import-Registry(@"
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
 "AppsUseLightTheme"=dword:00000000
