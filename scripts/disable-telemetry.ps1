@@ -58,7 +58,7 @@ $hosts = @"
 0.0.0.0 watson.telemetry.microsoft.com
 0.0.0.0 watson.telemetry.microsoft.com.nsatc.net
 0.0.0.0 wes.df.telemetry.microsoft.com
-"@)
+"@
 echo $hosts >> "$env:systemroot\System32\drivers\etc\hosts"
 
 echo "Disabling telemetry via Group Policies"
