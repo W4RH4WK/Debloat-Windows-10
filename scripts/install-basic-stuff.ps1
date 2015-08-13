@@ -9,6 +9,7 @@ $packages = @(
     #"audacity"
     #"autoit"
     #"filezilla"
+    #"firefox"
     #"gimp"
     #"google-chrome-x64"
     #"imgburn"
