@@ -2,7 +2,7 @@
 # This script redirects telemetry related domains to your nowhere using the
 # hosts file. Additionally telemetry is disallows via Group Policies.
 
-Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
 echo "Adding telemetry routes to hosts file"
 $hosts = @"

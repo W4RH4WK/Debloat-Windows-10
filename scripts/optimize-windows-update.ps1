@@ -2,7 +2,7 @@
 # This script optimizes Windows updates by disabling automatic download and
 # seeding updates to other computers.
 
-Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
 echo "Disable automatic download and installation of Windows updates"
 Import-Registry(@"

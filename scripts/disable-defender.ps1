@@ -1,7 +1,7 @@
 #   Description:
 # This script will disable Windows Defender via Group Policies.
 
-Import-Module $PSScriptRoot\..\lib\reg-helper.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
 echo "Disabling Windows Defender"
 Import-Registry(@"
