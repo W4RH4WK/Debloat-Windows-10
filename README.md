@@ -50,6 +50,11 @@ know.
 I would be happy to extend the collection of scripts. Just open an issue or
 send me a pull request.
 
+### Thanks To
+
+- [maci0](https://github.com/maci0)
+- [tumpio](https://github.com/tumpio)
+
 ## License
 
     "THE BEER-WARE LICENSE" (Revision 42):
