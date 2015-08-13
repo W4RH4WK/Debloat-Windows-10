@@ -1,10 +1,10 @@
 #   Description:
 # This script will disable Windows Defender via Group Policies.
 
-echo "Disabling Windows Defender"
-$reg = @"
-Windows Registry Editor Version 5.00
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
+echo "Disabling Windows Defender"
+Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender]
 "DisableAntiSpyware"=dword:00000001
 "DisableRoutinelyTakingAction"=dword:00000001
@@ -13,8 +13,4 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection]
 "DisableRealtimeMonitoring"=dword:00000001
-"@
-$regfile = "$env:windir\Temp\registry.reg"
-$reg | Out-File $regfile
-Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
-rm $regfile
+"@)
