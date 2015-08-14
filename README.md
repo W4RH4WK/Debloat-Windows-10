@@ -5,6 +5,9 @@ This project is an effort to collect scripts which help *debloating* Windows
 
 ## Download Latest Release
 
+Code located in the `master` branch is under development (for now). Stable
+versions:
+
 - [Debloat-Windows-10 v0.1 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.1.zip)
 - [Debloat-Windows-10 v0.1 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.1.tar.gz)
 
@@ -32,6 +35,13 @@ be pretty obvious what they do.
 I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
 Please let me know if you encounter any issues with other Windows 10 versions.
 
+## Interactivity
+
+The scripts are designed to run without any user-interaction. Modify them
+beforehand. If you want a more interactive approach check out
+[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
+[10se1ucgo](https://github.com/10se1ucgo).
+
 ## Privacy Settings
 
 I am also working on a script which sets the privacy settings of the current
@@ -52,6 +62,7 @@ send me a pull request.
 
 ### Thanks To
 
+- [10se1ucgo](https://github.com/10se1ucgo)
 - [maci0](https://github.com/maci0)
 - [tumpio](https://github.com/tumpio)
 
