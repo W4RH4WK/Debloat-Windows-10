@@ -1,52 +1,52 @@
-0.0.0.0 134.170.30.202
-0.0.0.0 137.116.81.24
-0.0.0.0 204.79.197.200
-0.0.0.0 23.218.212.69
-0.0.0.0 23.218.212.69
-0.0.0.0 65.39.117.230
-0.0.0.0 65.55.108.23
-0.0.0.0 a-0001.a-msedge.net
-0.0.0.0 choice.microsoft.com
-0.0.0.0 choice.microsoft.com.nsatc.net
-0.0.0.0 compatexchange.cloudapp.net
-0.0.0.0 corp.sts.microsoft.com
-0.0.0.0 corpext.msitadfs.glbdns2.microsoft.com
-0.0.0.0 cs1.wpc.v0cdn.net
-0.0.0.0 df.telemetry.microsoft.com
-0.0.0.0 diagnostics.support.microsoft.com
-0.0.0.0 fe2.update.microsoft.com.akadns.net
-0.0.0.0 feedback.microsoft-hohm.com
-0.0.0.0 feedback.search.microsoft.com
-0.0.0.0 feedback.windows.com
-0.0.0.0 i1.services.social.microsoft.com
-0.0.0.0 i1.services.social.microsoft.com.nsatc.net
-0.0.0.0 oca.telemetry.microsoft.com
-0.0.0.0 oca.telemetry.microsoft.com.nsatc.net
-0.0.0.0 pre.footprintpredict.com
-0.0.0.0 redir.metaservices.microsoft.com
-0.0.0.0 reports.wes.df.telemetry.microsoft.com
-0.0.0.0 services.wes.df.telemetry.microsoft.com
-0.0.0.0 settings-sandbox.data.microsoft.com
-0.0.0.0 sls.update.microsoft.com.akadns.net
-0.0.0.0 sqm.df.telemetry.microsoft.com
-0.0.0.0 sqm.telemetry.microsoft.com
-0.0.0.0 sqm.telemetry.microsoft.com.nsatc.net
-0.0.0.0 statsfe1.ws.microsoft.com
-0.0.0.0 statsfe2.update.microsoft.com.akadns.net
-0.0.0.0 statsfe2.ws.microsoft.com
-0.0.0.0 survey.watson.microsoft.com
-0.0.0.0 telecommand.telemetry.microsoft.com
-0.0.0.0 telecommand.telemetry.microsoft.com.nsatc.net
-0.0.0.0 telemetry.appex.bing.net
-0.0.0.0 telemetry.appex.bing.net:443
-0.0.0.0 telemetry.microsoft.com
-0.0.0.0 telemetry.urs.microsoft.com
-0.0.0.0 vortex-sandbox.data.microsoft.com
-0.0.0.0 vortex-win.data.microsoft.com
-0.0.0.0 vortex.data.microsoft.com
-0.0.0.0 watson.live.com
-0.0.0.0 watson.microsoft.com
-0.0.0.0 watson.ppe.telemetry.microsoft.com
-0.0.0.0 watson.telemetry.microsoft.com
-0.0.0.0 watson.telemetry.microsoft.com.nsatc.net
-0.0.0.0 wes.df.telemetry.microsoft.com
+134.170.30.202
+137.116.81.24
+204.79.197.200
+23.218.212.69
+23.218.212.69
+65.39.117.230
+65.55.108.23
+a-0001.a-msedge.net
+choice.microsoft.com
+choice.microsoft.com.nsatc.net
+compatexchange.cloudapp.net
+corp.sts.microsoft.com
+corpext.msitadfs.glbdns2.microsoft.com
+cs1.wpc.v0cdn.net
+df.telemetry.microsoft.com
+diagnostics.support.microsoft.com
+fe2.update.microsoft.com.akadns.net
+feedback.microsoft-hohm.com
+feedback.search.microsoft.com
+feedback.windows.com
+i1.services.social.microsoft.com
+i1.services.social.microsoft.com.nsatc.net
+oca.telemetry.microsoft.com
+oca.telemetry.microsoft.com.nsatc.net
+pre.footprintpredict.com
+redir.metaservices.microsoft.com
+reports.wes.df.telemetry.microsoft.com
+services.wes.df.telemetry.microsoft.com
+settings-sandbox.data.microsoft.com
+sls.update.microsoft.com.akadns.net
+sqm.df.telemetry.microsoft.com
+sqm.telemetry.microsoft.com
+sqm.telemetry.microsoft.com.nsatc.net
+statsfe1.ws.microsoft.com
+statsfe2.update.microsoft.com.akadns.net
+statsfe2.ws.microsoft.com
+survey.watson.microsoft.com
+telecommand.telemetry.microsoft.com
+telecommand.telemetry.microsoft.com.nsatc.net
+telemetry.appex.bing.net
+telemetry.appex.bing.net:443
+telemetry.microsoft.com
+telemetry.urs.microsoft.com
+vortex-sandbox.data.microsoft.com
+vortex-win.data.microsoft.com
+vortex.data.microsoft.com
+watson.live.com
+watson.microsoft.com
+watson.ppe.telemetry.microsoft.com
+watson.telemetry.microsoft.com
+watson.telemetry.microsoft.com.nsatc.net
+wes.df.telemetry.microsoft.com
