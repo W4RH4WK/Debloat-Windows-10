@@ -27,6 +27,15 @@ Import-Registry(@"
 "DisableFileSyncNGSC"=dword:00000001
 "@)
 
+echo "Remove Onedrive from explorer sidebar"
+Import-Registry(@"
+[HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+
+[HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+"@)
+
 echo "Removing startmenu entry"
 rm "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
