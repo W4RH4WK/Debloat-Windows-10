@@ -1,6 +1,7 @@
 #   Description:
 # This script redirects telemetry related domains to your nowhere using the
-# hosts file. Additionally telemetry is disallows via Group Policies.
+# hosts file. Telemtry realted ips are blocked by Windows firewall.
+# Additionally telemetry is disallows via Group Policies.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
