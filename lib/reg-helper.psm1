@@ -10,11 +10,24 @@ function Import-Registry($reg) {
 }
 
 function Takeown-Registry($key) {
-    # TODO works only for LocalMachine for now
-    $key = $key.substring(19)
+    # TODO does not work for all root keys yet
+    switch ($key.split('\')[0]) {
+        "HKEY_CLASSES_ROOT" {
+            $reg = [Microsoft.Win32.Registry]::ClassesRoot
+            $key = $key.substring(18)
+        }
+        "HKEY_CURRENT_USER" {
+            $reg = [Microsoft.Win32.Registry]::CurrentUser
+            $key = $key.substring(18)
+        }
+        "HKEY_LOCAL_MACHINE" {
+            $reg = [Microsoft.Win32.Registry]::LocalMachine
+            $key = $key.substring(19)
+        }
+    }
 
     # set owner
-    $key = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows Defender\Spynet", "ReadWriteSubTree", "TakeOwnership")
+    $key = $reg.OpenSubKey($key, "ReadWriteSubTree", "TakeOwnership")
     $owner = [Security.Principal.NTAccount]"Administrators"
     $acl = $key.GetAccessControl()
     $acl.SetOwner($owner)

@@ -5,6 +5,24 @@
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 
+echo "Elevating priviledges for this process"
+do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
+
+echo "Setting default view to This PC"
+Import-Registry(@"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"LaunchTo"=dword:00000000
+"@)
+
+# Explorer will throw an error if quick acess is removed but the default view
+# has not been changed to This PC.
+echo "Removing Quick Access from explorer"
+Takeown-Registry("HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder")
+Import-Registry(@"
+[HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder]
+"Attributes"=dword:a0600000
+"@)
+
 echo "Removing user folders under This PC"
 Import-Registry(@"
 ; Remove Desktop From This PC
