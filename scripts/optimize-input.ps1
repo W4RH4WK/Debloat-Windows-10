@@ -32,6 +32,9 @@ Import-Registry(@"
 [HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
 "Flags"="378"
 
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+"Flags"="122"
+
 [HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
 "Flags"="58"
 "@)
