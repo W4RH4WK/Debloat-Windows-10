@@ -8,6 +8,14 @@ Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
 echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
+echo "Setting view options"
+Import-Registry(@"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"HideDrivesWithNoMedia"=dword:00000000
+"@)
+
 echo "Setting default view to This PC"
 Import-Registry(@"
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
