@@ -3,7 +3,6 @@
 # disable certain features comment out the corresponding lines below.
 
 $features = @(
-    "Internet-Explorer-Optional-amd64"
     "MediaPlayback"
     "WindowsMediaPlayer"
     "WorkFolders-Client"
