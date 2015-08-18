@@ -3,8 +3,9 @@
 # and install a list of packages.
 
 $packages = @(
-    "7zip.install"
     "notepadplusplus.install"
+    "peazip.install"
+    #"7zip.install"
     #"aimp"
     #"audacity"
     #"autoit"
