@@ -1,7 +1,6 @@
 #   Description:
-# This script removes unwanted Apps that come with Windows. Errors may occure
-# during the process. If you  do not want to remove certain Apps comment out
-# the corresponding lines below.
+# This script removes unwanted Apps that come with Windows. If you  do not want
+# to remove certain Apps comment out the corresponding lines below.
 
 $apps = @(
     "Microsoft.3DBuilder"
@@ -10,7 +9,6 @@ $apps = @(
     "Microsoft.BingNews"
     "Microsoft.BingSports"
     "Microsoft.BingWeather"
-    "Microsoft.BioEnrollment"
     "Microsoft.Getstarted"
     #"Microsoft.MicrosoftEdge"
     "Microsoft.MicrosoftOfficeHub"
@@ -23,14 +21,11 @@ $apps = @(
     "Microsoft.WindowsAlarms"
     "Microsoft.WindowsCalculator"
     "Microsoft.WindowsCamera"
-    "Microsoft.WindowsFeedback"
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
     "Microsoft.WindowsStore"
     "Microsoft.XboxApp"
-    "Microsoft.XboxGameCallableUI"
-    "Microsoft.XboxIdentityProvider"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
