@@ -1,6 +1,6 @@
 #   Description:
 # This script redirects telemetry related domains to your nowhere using the
-# hosts file. Telemtry realted ips are blocked by Windows firewall.
+# hosts file. Hard coded telemetry related IPs are blocked by Windows firewall.
 # Additionally telemetry is disallows via Group Policies.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
@@ -14,7 +14,7 @@ foreach ($h in $hosts) {
         $ips += [ipaddress]$h
     } catch [System.InvalidCastException] {
         # can be redirected by hosts
-        echo "0.0.0.0 $h" >> "$env:systemroot\System32\drivers\etc\hosts"
+        echo "0.0.0.0 $h" | Out-File -Encoding ASCII -Append "$env:systemroot\System32\drivers\etc\hosts"
     }
 }
 

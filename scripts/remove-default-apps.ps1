@@ -3,6 +3,7 @@
 # to remove certain Apps comment out the corresponding lines below.
 
 $apps = @(
+    # default Windows 10 apps
     "Microsoft.3DBuilder"
     "Microsoft.Appconnector"
     "Microsoft.BingFinance"
@@ -29,12 +30,19 @@ $apps = @(
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
+
+    # apps from Windows 8 upgrade
+    "9E2F88E3.Twitter"
+    "Flipboard.Flipboard"
+    "Microsoft.MinecraftUWP"
+    "ShazamEntertainmentLtd.Shazam"
+    "king.com.CandyCrushSaga"
 )
 
 foreach ($app in $apps) {
-    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage
+    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -ErrorAction SilentlyContinue
 
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
+        Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
 }
