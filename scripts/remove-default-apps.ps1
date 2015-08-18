@@ -34,6 +34,11 @@ $apps = @(
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
+    "Microsoft.MinecraftUWP"
+    "Flipboard.Flipboard"
+    "9E2F88E3.Twitter"
+    "king.com.CandyCrushSaga"
+    "ShazamEntertainmentLtd.Shazam"
 )
 
 foreach ($app in $apps) {
