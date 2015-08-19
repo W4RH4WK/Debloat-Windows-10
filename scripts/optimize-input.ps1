@@ -30,7 +30,7 @@ Import-Registry(@"
 echo "Disable easy access keyboard stuff"
 Import-Registry(@"
 [HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"Flags"="378"
+"Flags"="506"
 
 [HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
 "Flags"="122"
