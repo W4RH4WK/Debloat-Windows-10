@@ -39,10 +39,23 @@ $apps = @(
     "king.com.CandyCrushSaga"
 )
 
+echo "Uninstalling default apps"
 foreach ($app in $apps) {
     Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -ErrorAction SilentlyContinue
 
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+}
+
+echo "Renaming unremovable apps"
+$apps = @(
+    "Microsoft.BioEnrollment_cw5n1h2txyewy"
+    "Microsoft.XboxGameCallableUI_cw5n1h2txyewy"
+    "Microsoft.XboxIdentityProvider_cw5n1h2txyewy"
+    "WindowsFeedback_cw5n1h2txyewy"
+)
+
+foreach ($app in $apps) {
+    mv "$env:WinDir\SystemApps\$app" "$env:WinDir\SystemApps\_$app"
 }
