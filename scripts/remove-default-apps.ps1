@@ -11,13 +11,11 @@ $apps = @(
     "Microsoft.BingSports"
     "Microsoft.BingWeather"
     "Microsoft.Getstarted"
-    #"Microsoft.MicrosoftEdge"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.Office.OneNote"
     "Microsoft.People"
     "Microsoft.SkypeApp"
-    "Microsoft.Windows.Cortana"
     "Microsoft.Windows.Photos"
     "Microsoft.WindowsAlarms"
     "Microsoft.WindowsCalculator"
@@ -30,7 +28,16 @@ $apps = @(
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
-
+    
+    # apps that cannot be removed
+    #"Microsoft.BioEnrollment"
+    #"Microsoft.MicrosoftEdge"
+    #"Microsoft.Windows.Cortana"
+    #"Microsoft.WindowsFeedback"
+    #"Microsoft.XboxGameCallableUI"
+    #"Microsoft.XboxIdentityProvider"
+    #"Windows.ContactSupport"
+    
     # apps from Windows 8 upgrade
     "9E2F88E3.Twitter"
     "Flipboard.Flipboard"
