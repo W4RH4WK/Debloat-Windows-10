@@ -20,6 +20,8 @@ $packages = @(
     #"putty"
     #"python"
     #"qbittorrent"
+    #"speedcrunch"
+    #"sysinternals"
     #"thunderbird"
     #"vlc"
     #"windirstat"
