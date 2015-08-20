@@ -33,3 +33,12 @@ Get-PackageProvider -Name chocolatey -Force
 
 echo "Installing Packages"
 Install-Package -Name $packages -Force
+
+echo "Installing Sysinternals to C:\Sysinternals"
+$download_uri = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+$wc = new-object net.webclient
+$wc.DownloadFile($download_uri, "/SysinternalsSuite.zip")
+Add-Type -AssemblyName "system.io.compression.filesystem"
+[io.compression.zipfile]::ExtractToDirectory("/SysinternalsSuite.zip", "/Sysinternals")
+echo "Removing zipfile"
+rm "/SysinternalsSuite.zip"
