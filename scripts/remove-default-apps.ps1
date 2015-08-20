@@ -2,6 +2,12 @@
 # This script removes unwanted Apps that come with Windows. If you  do not want
 # to remove certain Apps comment out the corresponding lines below.
 
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
+
+echo "Elevating priviledges for this process"
+do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
+
+echo "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
@@ -11,13 +17,11 @@ $apps = @(
     "Microsoft.BingSports"
     "Microsoft.BingWeather"
     "Microsoft.Getstarted"
-    #"Microsoft.MicrosoftEdge"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.Office.OneNote"
     "Microsoft.People"
     "Microsoft.SkypeApp"
-    "Microsoft.Windows.Cortana"
     "Microsoft.Windows.Photos"
     "Microsoft.WindowsAlarms"
     "Microsoft.WindowsCalculator"
@@ -37,25 +41,50 @@ $apps = @(
     "Microsoft.MinecraftUWP"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
+
+    # apps which cannot be removed using Remove-AppxPackage
+    #"Microsoft.BioEnrollment"
+    #"Microsoft.MicrosoftEdge"
+    #"Microsoft.Windows.Cortana"
+    #"Microsoft.WindowsFeedback"
+    #"Microsoft.XboxGameCallableUI"
+    #"Microsoft.XboxIdentityProvider"
+    #"Windows.ContactSupport"
 )
 
-echo "Uninstalling default apps"
 foreach ($app in $apps) {
-    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -ErrorAction SilentlyContinue
+    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage
 
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+        Remove-AppxProvisionedPackage -Online
 }
 
-echo "Renaming unremovable apps"
-$apps = @(
-    "Microsoft.BioEnrollment_cw5n1h2txyewy"
-    "Microsoft.XboxGameCallableUI_cw5n1h2txyewy"
-    "Microsoft.XboxIdentityProvider_cw5n1h2txyewy"
-    "WindowsFeedback_cw5n1h2txyewy"
+echo "Force removing system apps"
+$needles = @(
+    "BioEnrollment"
+    "ContactSupport"
+    "Cortana"
+    "Feedback"
+    "Flash"
+    "OneDrive"
+    "Xbox"
 )
 
-foreach ($app in $apps) {
-    mv "$env:WinDir\SystemApps\$app" "$env:WinDir\SystemApps\_$app"
+foreach ($needle in $needles) {
+    $pkgs = (ls "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages" |
+        where Name -Like "*$needle*")
+
+    foreach ($pkg in $pkgs) {
+        $pkgname = $pkg.Name.split('\')[-1]
+
+        Takeown-Registry($pkg.Name)
+        Takeown-Registry($pkg.Name + "\Owners")
+
+        Set-ItemProperty -Path ("HKLM:" + $pkg.Name.Substring(18)) -Name Visibility -Value 1
+        New-ItemProperty -Path ("HKLM:" + $pkg.Name.Substring(18)) -Name DefVis -PropertyType DWord -Value 2
+        Remove-Item      -Path ("HKLM:" + $pkg.Name.Substring(18) + "\Owners")
+
+        dism.exe /Online /Remove-Package /PackageName:$pkgname /NoRestart
+    }
 }
