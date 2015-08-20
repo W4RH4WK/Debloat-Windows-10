@@ -9,6 +9,7 @@ $packages = @(
     #"aimp"
     #"audacity"
     #"autoit"
+    #"classic-shell"
     #"filezilla"
     #"firefox"
     #"gimp"
