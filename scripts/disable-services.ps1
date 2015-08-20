@@ -3,20 +3,28 @@
 # certain services comment out the corresponding lines below.
 
 $services = @(
+    "diagnosticshub.standardcollector.service"
+    "DiagTrack"
+    "dmwappushservice"
     "HomeGroupListener"
     "HomeGroupProvider"
+    "lfsvc"
     "MapsBroker"
     "NetTcpPortSharing"
     "RemoteAccess"
     "RemoteRegistry"
     "SharedAccess"
+    "TrkWks"
     "WbioSrvc"
+    "WMPNetworkSvc"
+    "wscsvc"
+    "WSearch"
     "XblAuthManager"
     "XblGameSave"
     "XboxNetApiSvc"
-    "dmwappushservice"
-    "lfsvc"
-    #"wscsvc"
+
+    # Services which cannot be disabled
+    #"WdNisSvc"
 )
 
 foreach ($service in $services) {
