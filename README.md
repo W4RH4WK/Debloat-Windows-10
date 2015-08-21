@@ -69,6 +69,7 @@ send me a pull request.
 ### Thanks To
 
 - [10se1ucgo](https://github.com/10se1ucgo)
+- [aramboi](https://github.com/aramboi)
 - [maci0](https://github.com/maci0)
 - [narutards](https://github.com/narutards)
 - [tumpio](https://github.com/tumpio)
