@@ -22,6 +22,9 @@ rm -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
 rm -Recurse -Force -ErrorAction SilentlyContinue "C:\OneDriveTemp"
 
 echo "Disable OneDrive via Group Policies"
+if (-Not (Get-Item -Path 'HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive\' -ErrorAction SilentlyContinue)) {
+  New-Item -Path 'HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive\'
+}
 Set-ItemProperty -Path 'HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive\' -Name DisableFileSyncNGSC -Value 1
 
 echo "Remove Onedrive from explorer sidebar"
