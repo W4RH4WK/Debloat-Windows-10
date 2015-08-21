@@ -34,13 +34,14 @@ $apps = @(
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
+    "Microsoft.MinecraftUWP"
 
-    # apps from Windows 8 upgrade
+    # non-Microsoft
     "9E2F88E3.Twitter"
     "Flipboard.Flipboard"
-    "Microsoft.MinecraftUWP"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
+    "ClearChannelRadioDigital.iHeartRadio"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
