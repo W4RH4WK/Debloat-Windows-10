@@ -1,14 +1,3 @@
-function Import-Registry($reg) {
-    # add reg file hander
-    $reg = "Windows Registry Editor Version 5.00`r`n`r`n" + $reg
-
-    # store, import and remove reg file
-    $regfile = "$env:windir\Temp\registry.reg"
-    $reg | Out-File $regfile
-    Start-Process "regedit.exe" -ArgumentList ("/s", "$regfile") -Wait
-    rm $regfile
-}
-
 function Takeown-Registry($key) {
     # TODO does not work for all root keys yet
     switch ($key.split('\')[0]) {

@@ -2,7 +2,7 @@
 # This script will try to fix many of the privacy settings for the user. This
 # is work in progress!
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
 echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)

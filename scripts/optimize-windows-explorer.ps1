@@ -3,7 +3,7 @@
 # Exlorer. If you do not want to remove certain user folders comment out the
 # corresponding lines below.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
 echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
