@@ -2,22 +2,16 @@
 # This script optimizes Windows updates by disabling automatic download and
 # seeding updates to other computers.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
-
 echo "Disable automatic download and installation of Windows updates"
-Import-Registry(@"
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"NoAutoUpdate"=dword:00000000
-"AUOptions"=dword:00000002
-"ScheduledInstallDay"=dword:00000000
-"ScheduledInstallTime"=dword:00000003
-"@)
+mkdir -Force "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU"
+sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "NoAutoUpdate" 0
+sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "AUOptions" 2
+sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallDay" 0
+sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallTime" 3
 
 echo "Disable seeding of updates to other computers via Group Policies"
-Import-Registry(@"
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
-"DODownloadMode"=dword:00000000
-"@)
+mkdir -Force "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization"
+sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" "DODownloadMode" 0
 
 #echo "Disabling automatic driver update"
-#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" -Name "SearchOrderConfig" -Value 0
+#sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" "SearchOrderConfig" 0
