@@ -2,39 +2,21 @@
 # This script will apply MarkC's mouse acceleration fix (for 100% DPI) and
 # disable some accessibility features regarding keyboard input.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
-
 echo "Apply MarkC's mouse acceleration fix"
-Import-Registry(@"
-[HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseSensitivity"="10"
-"SmoothMouseXCurve"=hex:\
-    00,00,00,00,00,00,00,00,\
-    C0,CC,0C,00,00,00,00,00,\
-    80,99,19,00,00,00,00,00,\
-    40,66,26,00,00,00,00,00,\
-    00,33,33,00,00,00,00,00
-"SmoothMouseYCurve"=hex:\
-    00,00,00,00,00,00,00,00,\
-    00,00,38,00,00,00,00,00,\
-    00,00,70,00,00,00,00,00,\
-    00,00,A8,00,00,00,00,00,\
-    00,00,E0,00,00,00,00,00
-
-[HKEY_USERS\.DEFAULT\Control Panel\Mouse]
-"MouseSpeed"="0"
-"MouseThreshold1"="0"
-"MouseThreshold2"="0"
-"@)
+sp "HKCU:\Control Panel\Mouse" "MouseSensitivity" "10"
+sp "HKCU:\Control Panel\Mouse" "MouseSpeed" "0"
+sp "HKCU:\Control Panel\Mouse" "MouseThreshold1" "0"
+sp "HKCU:\Control Panel\Mouse" "MouseThreshold2" "0"
+sp "HKCU:\Control Panel\Mouse" "SmoothMouseXCurve" ([byte[]](0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0xCC, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x80, 0x99, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x66, 0x26, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x33, 0x33, 0x00, 0x00, 0x00, 0x00, 0x00))
+sp "HKCU:\Control Panel\Mouse" "SmoothMouseYCurve" ([byte[]](0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA8, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00))
 
 echo "Disable easy access keyboard stuff"
-Import-Registry(@"
-[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"Flags"="506"
-
-[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
-"Flags"="122"
-
-[HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
-"Flags"="58"
-"@)
+sp "HKCU:\Control Panel\Accessibility\StickyKeys" "Flags" "506"
+sp "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "122"
+sp "HKCU:\Control Panel\Accessibility\ToggleKeys" "Flags" "58"
