@@ -18,3 +18,6 @@ Import-Registry(@"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
 "DODownloadMode"=dword:00000000
 "@)
+
+#echo "Disabling automatic driver update"
+#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" -Name "SearchOrderConfig" -Value 0
