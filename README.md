@@ -39,7 +39,13 @@ Please let me know if you encounter any issues with other Windows 10 versions.
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
 3. Run the edited scripts.
+    1. `fix-privacy-settings.ps1`
+    2. `disable-scheduled-tasks.ps1`
+    3. `disable-windows-features.ps1`
+    4. `disable-services.ps1`
+    5. ...
 4. Reboot!
+
 
 ## Interactivity
 
