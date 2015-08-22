@@ -3,8 +3,6 @@
 # hosts file. Hard coded telemetry related IPs are blocked by Windows firewall.
 # Additionally telemetry is disallows via Group Policies.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\reg-helper.psm1
-
 echo "Adding telemetry domains to hosts file"
 $hosts = cat "$PSScriptRoot\..\res\telemetry-hosts.txt"
 $hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
@@ -29,7 +27,5 @@ New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips)
 
 echo "Disabling telemetry via Group Policies"
-Import-Registry(@"
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
-"AllowTelemetry"=dword:00000000
-"@)
+mkdir -Force "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
+sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
