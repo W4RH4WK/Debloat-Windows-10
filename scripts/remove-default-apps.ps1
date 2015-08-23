@@ -66,6 +66,7 @@ $needles = @(
     "BioEnrollment"
     "ContactSupport"
     "Cortana"
+    #"Defender"
     "Feedback"
     "Flash"
     "OneDrive"
