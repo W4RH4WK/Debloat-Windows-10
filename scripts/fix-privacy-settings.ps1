@@ -12,9 +12,11 @@ Set-WindowsSearchSetting -EnableWebResultsSetting $false
 
 echo "Set general privacy options"
 sp "HKCU:\Control Panel\International\User Profile" "HttpAcceptLanguageOptOut" 1
+mkdir -Force "HKCU:\Printers\Defaults"
 sp "HKCU:\Printers\Defaults" "NetID" "{00000000-0000-0000-0000-000000000000}"
 mkdir -Force "HKCU:\SOFTWARE\Microsoft\Input\TIPC"
 sp "HKCU:\SOFTWARE\Microsoft\Input\TIPC" "Enabled" 0
+mkdir -Force "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo"
 sp "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" "Enabled" 0
 sp "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" "EnableWebContentEvaluation" 0
 
