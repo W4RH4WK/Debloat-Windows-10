@@ -70,3 +70,6 @@ sp "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" 
 
 #echo "Disabling screen saver"
 #sp "HKCU:\Control Panel\Desktop\" "ScreenSaveActive" "0"
+
+echo "Use legacy advanced boot menu"
+bcdedit.exe /set `{current`} bootmenupolicy Legacy
