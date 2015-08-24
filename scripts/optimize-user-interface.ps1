@@ -67,3 +67,6 @@ sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" "NoLockScreen" 1
 echo "Disabling tile push notification"
 mkdir -Force "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
 sp "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" "NoTileApplicationNotification" 1
+
+#echo "Disabling screen saver"
+#sp "HKCU:\Control Panel\Desktop\" "ScreenSaveActive" "0"
