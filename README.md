@@ -7,8 +7,8 @@ This project is an effort to collect scripts which help *debloating* Windows
 
 Code located in the `master` branch is under development (for now).
 
-- [Debloat-Windows-10 v0.2 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.2.zip)
-- [Debloat-Windows-10 v0.2 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.2.tar.gz)
+- [Debloat-Windows-10 v0.3 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.3.zip)
+- [Debloat-Windows-10 v0.3 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.3.tar.gz)
 
 ## Description
 
