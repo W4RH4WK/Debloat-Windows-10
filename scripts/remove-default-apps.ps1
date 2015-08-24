@@ -65,7 +65,7 @@ echo "Force removing system apps"
 $needles = @(
     "BioEnrollment"
     "ContactSupport"
-    "Cortana"
+    #"Cortana"       # This will disable startmenu search.
     #"Defender"
     "Feedback"
     "Flash"
