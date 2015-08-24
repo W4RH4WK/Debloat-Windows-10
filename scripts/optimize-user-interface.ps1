@@ -20,11 +20,11 @@ sp "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "LaunchTo
 
 # Explorer will throw an error if quick acess is removed and default view has
 # not been changed to This PC.
-echo "Removing Quick Access from explorer"
-Takeown-Registry("HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder")
-New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
-sp "HKCR:\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder" "Attributes" 0xa0600000
-Remove-PSDrive "HKCR"
+#echo "Removing Quick Access from explorer"
+#Takeown-Registry("HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder")
+#New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
+#sp "HKCR:\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder" "Attributes" 0xa0600000
+#Remove-PSDrive "HKCR"
 
 echo "Removing user folders under This PC"
 # Remove Desktop from This PC
