@@ -1,25 +1,24 @@
 # Debloat Windows 10
 
-This project is an effort to collect scripts which help *debloating* Windows
-10.
+This project collects Powershell scripts which help to *debloat* Windows 10,
+tweak common settings and install basic software components.
 
 ## Download Latest Release
 
 Code located in the `master` branch is under development (for now).
 
-- [Debloat-Windows-10 v0.3 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.3.zip)
-- [Debloat-Windows-10 v0.3 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.3.tar.gz)
+- [Debloat-Windows-10 v0.4 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.zip)
+- [Debloat-Windows-10 v0.4 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.tar.gz)
 
 ## Description
 
-I personally find the state Windows 10 comes in quite shocking / scary and want
-to have very quick, scriptable solution to remove and disable Windows 10's
-*features* most people do not need nor want anyway.
+Windows 10 comes with a whole bunch features most (power-)user do not use /
+want. Therefore the scripts provided should help getting rid of them easily.
 
-You should have no problems using the provided Powershell scripts or altering
-them to fit your needs. Do not forget to set the execution policy for
-Powershell scripts. And of course, you have to run them with administrative
-privileges.
+I try to keep sensible defaults for all scripts but you'll be better of editing
+them before execution to fit your personal needs. Don't forget to run them with
+administrative privileges and have Powershell execution policy set to
+`Unrestricted`.
 
     PS> Set-ExecutionPolicy Unrestricted
 
@@ -28,9 +27,6 @@ execution policy set to bypass.
 
     C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
 
-Look at the scripts, most of them are only a couple of lines long and it should
-be pretty obvious what they do.
-
 I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
 Please let me know if you encounter any issues with other Windows 10 versions.
 
@@ -38,7 +34,7 @@ Please let me know if you encounter any issues with other Windows 10 versions.
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the edited scripts.
+3. Run the edited scripts (recommended order)
     1. `fix-privacy-settings.ps1`
     2. `disable-scheduled-tasks.ps1`
     3. `disable-windows-features.ps1`
@@ -46,22 +42,12 @@ Please let me know if you encounter any issues with other Windows 10 versions.
     5. ...
 4. Reboot!
 
-
 ## Interactivity
 
 The scripts are designed to run without any user-interaction. Modify them
 beforehand. If you want a more interactive approach check out
 [DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
 [10se1ucgo](https://github.com/10se1ucgo).
-
-## Privacy Settings
-
-I am also working on a script which sets the privacy settings of the current
-user. I will try to keep it up-to-date as good as possible but do not rely on
-them since they may be outdated.
-
-If you find a certain setting which should be set in the stated script, let me
-know.
 
 ## Liability
 
