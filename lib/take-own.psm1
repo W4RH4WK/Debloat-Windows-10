@@ -27,7 +27,7 @@ function Takeown-Registry($key) {
 
     # set FullControl
     $acl = $key.GetAccessControl()
-    $rule = New-Object System.Security.AccessControl.RegistryAccessRule("Administrators", "FullControl", "Allow")
+    $rule = New-Object System.Security.AccessControl.RegistryAccessRule($admins, "FullControl", "Allow")
     $acl.SetAccessRule($rule)
     $key.SetAccessControl($acl)
 }
