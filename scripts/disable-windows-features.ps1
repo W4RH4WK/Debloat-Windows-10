@@ -28,19 +28,6 @@ sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" DisableWebSearch 
 sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" AllowSearchToUseLocation 0
 sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" ConnectedSearchUseWeb 0
 
-# This will disable the startmenu search feature.
-#echo "Disable searchUI.exe"
-#taskkill.exe /F /IM "SearchUI.exe"
-#foreach ($_ in (0..15)) {
-#    if (Test-Path "$env:windir\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy") {
-#        mv "$env:windir\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy" `
-#            "$env:windir\SystemApps\_Microsoft.Windows.Cortana_cw5n1h2txyewy" `
-#            -ErrorAction SilentlyContinue
-#    } else {
-#        break
-#    }
-#}
-
 echo "Disabling telemetry via Group Policies"
 mkdir -Force "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
 sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
