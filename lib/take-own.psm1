@@ -15,11 +15,14 @@ function Takeown-Registry($key) {
         }
     }
 
+    # get administraor group
+    $admins = New-Object System.Security.Principal.SecurityIdentifier("S-1-5-32-544")
+    $admins = $admins.Translate([System.Security.Principal.NTAccount])
+
     # set owner
     $key = $reg.OpenSubKey($key, "ReadWriteSubTree", "TakeOwnership")
-    $owner = [Security.Principal.NTAccount]"Administrators"
     $acl = $key.GetAccessControl()
-    $acl.SetOwner($owner)
+    $acl.SetOwner($admins)
     $key.SetAccessControl($acl)
 
     # set FullControl
