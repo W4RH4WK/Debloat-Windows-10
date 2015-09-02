@@ -63,13 +63,19 @@ foreach ($app in $apps) {
 
 echo "Force removing system apps"
 $needles = @(
+    #"Anytime"
     "BioEnrollment"
+    #"Browser"
     "ContactSupport"
     #"Cortana"       # This will disable startmenu search.
     #"Defender"
     "Feedback"
     "Flash"
+    "Gaming"
+    #"InternetExplorer"
+    #"Maps"
     "OneDrive"
+    #"Wallet"
     "Xbox"
 )
 
