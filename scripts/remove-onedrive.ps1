@@ -1,6 +1,8 @@
 #   Description:
 # This script will remove and disable OneDrive integration.
 
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
+
 echo "Kill OneDrive process"
 taskkill.exe /F /IM "OneDrive.exe"
 taskkill.exe /F /IM "explorer.exe"
@@ -36,3 +38,12 @@ rm -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Micros
 
 echo "Restarting explorer"
 start "explorer.exe"
+
+echo "Waiting for explorer to complete loading"
+sleep 10
+
+echo "Removing additional OneDrive leftovers"
+foreach ($item in (ls "$env:WinDir\WinSxS\*onedrive*")) {
+    Takeown-Folder $item.FullName
+    rm -Recurse -Force $item.FullName
+}
