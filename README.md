@@ -1,16 +1,24 @@
 # Debloat Windows 10
 
-This project is an effort to collect scripts which help *debloating* Windows
-10.
+This project collects Powershell scripts which help to *debloat* Windows 10,
+tweak common settings and install basic software components.
 
-I personally find the state Windows 10 comes in quite shocking / scary and want
-to have very slim, scriptable solution to remove and disable Windows 10's
-features most people do not need nor want.
+## Download Latest Release
 
-The scripts provided consists of Powershell scripts, you should have no
-problems altering and using them to fit your needs. Do not forget to set the
-execution policy for Powershell scripts. And of course, how have to run them
-with administrative privileges.
+Code located in the `master` branch is under development (for now).
+
+- [Debloat-Windows-10 v0.4 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.zip)
+- [Debloat-Windows-10 v0.4 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.tar.gz)
+
+## Description
+
+Windows 10 comes with a whole bunch features most (power-)user do not use /
+want. Therefore the scripts provided should help getting rid of them easily.
+
+I try to keep sensible defaults for all scripts but you'll be better of editing
+them before execution to fit your personal needs. Don't forget to run them with
+administrative privileges and have Powershell execution policy set to
+`Unrestricted`.
 
     PS> Set-ExecutionPolicy Unrestricted
 
@@ -19,17 +27,27 @@ execution policy set to bypass.
 
     C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
 
-Look at the scripts most of them are only a couple of lines long and it should
-be pretty obvious what they are doing.
-
 I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
-Please let me know if you encounter any issues with other Windows versions.
+Please let me know if you encounter any issues with other Windows 10 versions.
 
-## Privacy Settings
+## Usage
 
-I am also working on a script which sets the privacy settings of the current
-user. I will try to keep them up-to-date as good as possible but do not rely on
-them since they may be outdated.
+1. Install all available updates for your system.
+2. Edit the scripts to fit your need.
+3. Run the edited scripts (recommended order)
+    1. `fix-privacy-settings.ps1`
+    2. `disable-scheduled-tasks.ps1`
+    3. `disable-windows-features.ps1`
+    4. `disable-services.ps1`
+    5. ...
+4. Reboot!
+
+## Interactivity
+
+The scripts are designed to run without any user-interaction. Modify them
+beforehand. If you want a more interactive approach check out
+[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
+[10se1ucgo](https://github.com/10se1ucgo).
 
 ## Liability
 
@@ -39,6 +57,14 @@ them since they may be outdated.
 
 I would be happy to extend the collection of scripts. Just open an issue or
 send me a pull request.
+
+### Thanks To
+
+- [10se1ucgo](https://github.com/10se1ucgo)
+- [aramboi](https://github.com/aramboi)
+- [maci0](https://github.com/maci0)
+- [narutards](https://github.com/narutards)
+- [tumpio](https://github.com/tumpio)
 
 ## License
 

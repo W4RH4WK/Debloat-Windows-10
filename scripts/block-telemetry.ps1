@@ -1,0 +1,90 @@
+#   Description:
+# This script blocks telemetry related domains via the hosts file and related
+# IPs via Windows Firewall.
+
+echo "Adding telemetry domains to hosts file"
+$hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
+$domains = @(
+    "a-0001.a-msedge.net"
+    "a1621.g.akamai.net"
+    "a1856.g2.akamai.net"
+    "a1961.g.akamai.net"
+    "a248.e.akamai.net"
+    "a978.i6g1.akamai.net"
+    "any.edge.bing.com"
+    "bingads.microsoft.com"
+    "choice.microsoft.com"
+    "choice.microsoft.com.nsatc.net"
+    "compatexchange.cloudapp.net"
+    "corp.sts.microsoft.com"
+    "corpext.msitadfs.glbdns2.microsoft.com"
+    "cs1.wpc.v0cdn.net"
+    "df.telemetry.microsoft.com"
+    "diagnostics.support.microsoft.com"
+    "e2835.dspb.akamaiedge.net"
+    "e7341.g.akamaiedge.net"
+    "e7502.ce.akamaiedge.net"
+    "e8218.ce.akamaiedge.net"
+    "fe2.update.microsoft.com.akadns.net"
+    "feedback.microsoft-hohm.com"
+    "feedback.search.microsoft.com"
+    "feedback.windows.com"
+    "h2.msn.com"
+    "hostedocsp.globalsign.com"
+    "i1.services.social.microsoft.com"
+    "i1.services.social.microsoft.com.nsatc.net"
+    "ipv6.msftncsi.com"
+    "ipv6.msftncsi.com.edgesuite.net"
+    "oca.telemetry.microsoft.com"
+    "oca.telemetry.microsoft.com.nsatc.net"
+    "onesettings-db5.metron.live.nsatc.net"
+    "pre.footprintpredict.com"
+    "redir.metaservices.microsoft.com"
+    "reports.wes.df.telemetry.microsoft.com"
+    "services.wes.df.telemetry.microsoft.com"
+    "settings-sandbox.data.microsoft.com"
+    "sls.update.microsoft.com.akadns.net"
+    "sqm.df.telemetry.microsoft.com"
+    "sqm.telemetry.microsoft.com"
+    "sqm.telemetry.microsoft.com.nsatc.net"
+    "statsfe1.ws.microsoft.com"
+    "statsfe2.update.microsoft.com.akadns.net"
+    "statsfe2.ws.microsoft.com"
+    "survey.watson.microsoft.com"
+    "telecommand.telemetry.microsoft.com"
+    "telecommand.telemetry.microsoft.com.nsatc.net"
+    "telemetry.appex.bing.net"
+    "telemetry.appex.bing.net:443"
+    "telemetry.microsoft.com"
+    "telemetry.urs.microsoft.com"
+    "vortex-sandbox.data.microsoft.com"
+    "vortex-win.data.microsoft.com"
+    "vortex.data.microsoft.com"
+    "watson.live.com"
+    "watson.microsoft.com"
+    "watson.ppe.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com.nsatc.net"
+    "wes.df.telemetry.microsoft.com"
+    "win10.ipv6.microsoft.com"
+    "www.bingads.microsoft.com"
+    "www.go.microsoft.akadns.net"
+)
+foreach ($domain in $domains) {
+    if (-Not (Select-String -Path $hosts_file -Pattern $domain)) {
+        echo "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
+    }
+}
+
+echo "Adding telemetry ips to firewall"
+$ips = @(
+    "134.170.30.202"
+    "137.116.81.24"
+    "204.79.197.200"
+    "23.218.212.69"
+    "65.39.117.230"
+    "65.55.108.23"
+)
+Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue
+New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
+    -Action Block -RemoteAddress ([string[]]$ips)
