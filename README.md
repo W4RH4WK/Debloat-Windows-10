@@ -3,6 +3,12 @@
 This project collects Powershell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
+## IMPORTANT NOTICE
+
+People have reported that the scripts default setting breaks the search button
+/ functionality. This should not happen by default, release v0.4 has that
+problem, more information can be found in #39.
+
 ## Download Latest Release
 
 Code located in the `master` branch is under development (for now).
