@@ -12,7 +12,7 @@ upgrade (1511), see #40.
 
 Code located in the `master` branch is under development (for now).
 
-- [Download Button](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
+- [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
 
 ## Description
 
