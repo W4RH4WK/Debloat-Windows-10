@@ -36,6 +36,12 @@ $apps = @(
     "microsoft.windowscommunicationsapps"
     "Microsoft.MinecraftUWP"
 
+    # Threshold 2 apps
+    "Microsoft.CommsPhone"
+    "Microsoft.ConnectivityStore"
+    "Microsoft.Messaging"
+    "Microsoft.Office.Sway"
+
     # non-Microsoft
     "9E2F88E3.Twitter"
     "Flipboard.Flipboard"
