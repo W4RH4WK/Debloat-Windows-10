@@ -82,7 +82,7 @@ $needles = @(
     #"Maps"
     "OneDrive"
     #"Wallet"
-    "Xbox"
+    #"Xbox"
 )
 
 foreach ($needle in $needles) {
