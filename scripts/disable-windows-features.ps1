@@ -18,6 +18,9 @@ sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" "DisableRout
 mkdir -Force "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection"
 sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection" "DisableRealtimeMonitoring" 1
 
+echo "Removing Windows Defender context menu item"
+si "HKLM:\SOFTWARE\Classes\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}\InprocServer32" ""
+
 echo "Disable Notification Center"
 sp "HKLM:\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" UseActionCenterExperience 0
 
