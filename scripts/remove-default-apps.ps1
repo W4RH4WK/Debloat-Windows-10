@@ -82,7 +82,7 @@ $needles = @(
     #"Maps"
     "OneDrive"
     #"Wallet"
-    #"Xbox"
+    #"Xbox"          # This will result in a bootloop since upgrade 1511
 )
 
 foreach ($needle in $needles) {
