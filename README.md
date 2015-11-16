@@ -5,16 +5,14 @@ tweak common settings and install basic software components.
 
 ## IMPORTANT NOTICE
 
-People have reported that the scripts default setting breaks the search button
-/ functionality. This should not happen by default, release v0.4 has that
-problem, more information can be found in #39.
+The latest version may introduce a bootloop when used with the latest Windows
+upgrade (1511), see #40.
 
-## Download Latest Release
+## Download Latest Version
 
 Code located in the `master` branch is under development (for now).
 
-- [Debloat-Windows-10 v0.4 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.zip)
-- [Debloat-Windows-10 v0.4 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.tar.gz)
+- [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
 
 ## Description
 
