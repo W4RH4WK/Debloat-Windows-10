@@ -3,11 +3,6 @@
 This project collects Powershell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
-## IMPORTANT NOTICE
-
-The latest version may introduce a bootloop when used with the latest Windows
-upgrade (1511), see #40.
-
 ## Download Latest Version
 
 Code located in the `master` branch is under development (for now).
