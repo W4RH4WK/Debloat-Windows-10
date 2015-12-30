@@ -9,22 +9,16 @@ Code located in the `master` branch is under development (for now).
 
 - [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
 
-## Description
+## Execution
 
-Windows 10 comes with a whole bunch features most (power-)user do not use /
-want. Therefore the scripts provided should help getting rid of them easily.
-
-I try to keep sensible defaults for all scripts but you'll be better of editing
-them before execution to fit your personal needs. Don't forget to run them with
-administrative privileges and have Powershell execution policy set to
-`Unrestricted`.
+Enable execution of PowerShell scripts:
 
     PS> Set-ExecutionPolicy Unrestricted
 
-Alternatively you can run the script as an argument to Powershell with
-execution policy set to bypass.
+Unblock PowerShell scripts and modules within this directory:
 
-    C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
+    PS > ls -Recurse *.ps1 | Unblock-File
+    PS > ls -Recurse *.psm1 | Unblock-File
 
 I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
 Please let me know if you encounter any issues with other Windows 10 versions.
@@ -33,13 +27,8 @@ Please let me know if you encounter any issues with other Windows 10 versions.
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the edited scripts (recommended order)
-    1. `fix-privacy-settings.ps1`
-    2. `disable-scheduled-tasks.ps1`
-    3. `disable-windows-features.ps1`
-    4. `disable-services.ps1`
-    5. ...
-4. Reboot!
+3. Run the scripts 
+4. `PS > Restart-Computer`
 
 ## Interactivity
 
