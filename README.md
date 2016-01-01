@@ -3,6 +3,14 @@
 This project collects Powershell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
+I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
+Please let me know if you encounter any issues with other Windows 10 versions.
+
+Note that **there is no undo**, I recommend only using these scripts on a fresh
+install (including updates). Test everything after running them before
+continuing with something else. Also there is no guarantee that everything will
+work after future updates since I cannot predict what Microsoft will do next.
+
 ## Download Latest Version
 
 Code located in the `master` branch is under development (for now).
@@ -20,14 +28,11 @@ Unblock PowerShell scripts and modules within this directory:
     PS > ls -Recurse *.ps1 | Unblock-File
     PS > ls -Recurse *.psm1 | Unblock-File
 
-I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
-Please let me know if you encounter any issues with other Windows 10 versions.
-
 ## Usage
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the scripts 
+3. Run the scripts
 4. `PS > Restart-Computer`
 
 ## Interactivity
