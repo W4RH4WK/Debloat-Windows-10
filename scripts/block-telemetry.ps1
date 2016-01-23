@@ -21,7 +21,7 @@ $domains = @(
     "a1621.g.akamai.net"
     "a1856.g2.akamai.net"
     "a1961.g.akamai.net"
-    "a248.e.akamai.net"
+    #"a248.e.akamai.net"            # makes iTunes download button disappear (#43)
     "a978.i6g1.akamai.net"
     "a.ads1.msn.com"
     "a.ads2.msads.net"
