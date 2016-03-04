@@ -15,3 +15,9 @@ sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" "DODownloadM
 
 #echo "Disabling automatic driver update"
 #sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" "SearchOrderConfig" 0
+
+echo "Disable 'Updates are available' message"
+takeown /F "$env:WinDIR\System32\MusNotification.exe"
+icacls "$env:WinDIR\System32\MusNotification.exe" /deny "Everyone:(X)"
+takeown /F "$env:WinDIR\System32\MusNotificationUx.exe"
+icacls "$env:WinDIR\System32\MusNotificationUx.exe" /deny "Everyone:(X)"
