@@ -3,44 +3,37 @@
 This project collects Powershell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
-## Download Latest Release
+I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
+Please let me know if you encounter any issues with other Windows 10 versions.
+
+Note that **there is no undo**, I recommend only using these scripts on a fresh
+install (including updates). Test everything after running them before
+continuing with something else. Also there is no guarantee that everything will
+work after future updates since I cannot predict what Microsoft will do next.
+
+## Download Latest Version
 
 Code located in the `master` branch is under development (for now).
 
-- [Debloat-Windows-10 v0.4 [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.zip)
-- [Debloat-Windows-10 v0.4 [tar.gz]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/v0.4.tar.gz)
+- [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
 
-## Description
+## Execution
 
-Windows 10 comes with a whole bunch features most (power-)user do not use /
-want. Therefore the scripts provided should help getting rid of them easily.
-
-I try to keep sensible defaults for all scripts but you'll be better of editing
-them before execution to fit your personal needs. Don't forget to run them with
-administrative privileges and have Powershell execution policy set to
-`Unrestricted`.
+Enable execution of PowerShell scripts:
 
     PS> Set-ExecutionPolicy Unrestricted
 
-Alternatively you can run the script as an argument to Powershell with
-execution policy set to bypass.
+Unblock PowerShell scripts and modules within this directory:
 
-    C:\> PowerShell.exe -ExecutionPolicy Bypass -File script-file.ps1
-
-I develop those scripts on a Windows 10 Professional 64-Bit virtual machine.
-Please let me know if you encounter any issues with other Windows 10 versions.
+    PS > ls -Recurse *.ps1 | Unblock-File
+    PS > ls -Recurse *.psm1 | Unblock-File
 
 ## Usage
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the edited scripts (recommended order)
-    1. `fix-privacy-settings.ps1`
-    2. `disable-scheduled-tasks.ps1`
-    3. `disable-windows-features.ps1`
-    4. `disable-services.ps1`
-    5. ...
-4. Reboot!
+3. Run the scripts
+4. `PS > Restart-Computer`
 
 ## Interactivity
 
@@ -61,6 +54,7 @@ send me a pull request.
 ### Thanks To
 
 - [10se1ucgo](https://github.com/10se1ucgo)
+- [Plumebit](https://github.com/Plumebit)
 - [aramboi](https://github.com/aramboi)
 - [maci0](https://github.com/maci0)
 - [narutards](https://github.com/narutards)

@@ -19,7 +19,7 @@ $services = @(
     #"WlanSvc"                                 # WLAN AutoConfig
     "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
     "wscsvc"                                   # Windows Security Center Service
-    "WSearch"                                  # Windows Search
+    #"WSearch"                                 # Windows Search
     "XblAuthManager"                           # Xbox Live Auth Manager
     "XblGameSave"                              # Xbox Live Game Save Service
     "XboxNetApiSvc"                            # Xbox Live Networking Service
