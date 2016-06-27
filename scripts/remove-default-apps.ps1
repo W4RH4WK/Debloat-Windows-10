@@ -46,7 +46,8 @@ $apps = @(
     "9E2F88E3.Twitter"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
-    "king.com.CandyCrushSaga"
+    "king.com.*"
+    "*Candy*"
     "ClearChannelRadioDigital.iHeartRadio"
 
     # apps which cannot be removed using Remove-AppxPackage
