@@ -29,5 +29,16 @@ $services = @(
 )
 
 foreach ($service in $services) {
-    Get-Service -Name $service | Set-Service -StartupType Disabled
+    Get-Service -Name $service -ErrorVariable getServiceError -ErrorAction SilentlyContinue | Set-Service -StartupType Disabled
+
+    # I use the shortened evaluation of the conditions here, if the first is false the second part is not processed.
+    # credit: http://powershell.com/cs/forums/t/12721.aspx
+    if ($getServiceError -and ($getServiceError | foreach {$_.FullyQualifiedErrorId -like "*NoServiceFoundForGivenName*"}))
+    {
+        Write-Warning "There is no service named $service."
+    }
+    else
+    {
+        Write-Output "Disabled service named $service."
+    }
 }
