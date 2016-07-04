@@ -13,6 +13,7 @@ foreach ($task in $tasks) {
     $name = $parts[-1]
     $path = $parts[0..($parts.length-2)] -join '\'
 
+    echo "Trying to disable scheduled task $name"
     Disable-ScheduledTask -TaskName "$name" -TaskPath "$path"
 }
 

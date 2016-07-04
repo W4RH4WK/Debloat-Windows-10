@@ -27,6 +27,8 @@ $needles = @(
 )
 
 foreach ($needle in $needles) {
+    echo "Trying to remove all packages containing $needle"
+
     $pkgs = (ls "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages" |
         where Name -Like "*$needle*")
 

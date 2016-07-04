@@ -62,6 +62,8 @@ $apps = @(
 )
 
 foreach ($app in $apps) {
+    echo "Trying to remove $app"
+
     Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage
 
     Get-AppXProvisionedPackage -Online |
