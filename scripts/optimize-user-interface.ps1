@@ -111,3 +111,8 @@ sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" "NoDriveT
 
 #echo "Use legacy advanced boot menu"
 #bcdedit.exe /set `{current`} bootmenupolicy Legacy
+
+# src: https://social.technet.microsoft.com/Forums/en-US/fa742f1a-38be-4ca2-9660-da58068214ed
+echo "Remove all tiles from start menu"
+$e = (New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}')
+$e.Items() | %{$_.Verbs()} | ?{$_.Name.replace('&','') -match 'Unpin from Start'} | %{$_.DoIt()}
