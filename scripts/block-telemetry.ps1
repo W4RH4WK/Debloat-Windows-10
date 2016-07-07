@@ -147,6 +147,7 @@ $domains = @(
     "m.hotmail.com"
     "s.gateway.messenger.live.com"
 )
+echo "" | Out-File -Encoding ASCII -Append $hosts_file
 foreach ($domain in $domains) {
     if (-Not (Select-String -Path $hosts_file -Pattern $domain)) {
         echo "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
