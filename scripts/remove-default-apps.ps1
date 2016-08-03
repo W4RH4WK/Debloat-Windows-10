@@ -45,7 +45,7 @@ $apps = @(
 
     # non-Microsoft
     "9E2F88E3.Twitter"
-    #"Drawboard.DrawboardPDF"
+    "Drawboard.DrawboardPDF"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
