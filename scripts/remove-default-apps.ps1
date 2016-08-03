@@ -51,7 +51,7 @@ $apps = @(
     "king.com.CandyCrushSodaSaga"
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
-    #"TheNewYorkTimes.NYTCrossword"
+    "TheNewYorkTimes.NYTCrossword"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
