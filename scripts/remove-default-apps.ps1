@@ -16,6 +16,7 @@ $apps = @(
     "Microsoft.BingNews"
     "Microsoft.BingSports"
     "Microsoft.BingWeather"
+    #"Microsoft.FreshPaint"
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
@@ -44,12 +45,14 @@ $apps = @(
 
     # non-Microsoft
     "9E2F88E3.Twitter"
+    #"Drawboard.DrawboardPDF"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
     "king.com.CandyCrushSodaSaga"
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
+    #"TheNewYorkTimes.NYTCrossword"
 )
 
 $dism_apps = @(
