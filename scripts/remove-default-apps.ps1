@@ -59,8 +59,17 @@ $apps = @(
     #"Microsoft.MicrosoftEdge"
     #"Microsoft.Windows.Cortana"
     #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
+    #"Windows.ContactSupport"
+)
+
+$dism_apps = @(
+    # apps which can be removed by dism see http://bit.ly/2ax33MM
+    #"Microsoft.BioEnrollment"
+    #"Microsoft.MicrosoftEdge"
+    #"Microsoft.Windows.Cortana"
+    #"Microsoft.WindowsFeedback"
+    "Microsoft.XboxGameCallableUI"
+    "Microsoft.XboxIdentityProvider"
     #"Windows.ContactSupport"
 )
 
@@ -72,4 +81,19 @@ foreach ($app in $apps) {
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
+}
+
+foreach ($app in $dism_apps)
+{
+    echo "Trying to remove $app"
+
+    $dism_app = dism /Online /Get-ProvisionedAppxpackages  | select-string $app | select-string "PackageName"
+    if ($dism_app)
+    {
+        Write-Verbose $dism_app
+        $package = $dism_app -split " : " | Select-String -NotMatch "PackageName"
+        $package = $package.ToString().Trim()
+        Write-Verbose $package
+        dism /Online /Remove-ProvisionedAppxPackage /PackageName:$package
+    }
 }
