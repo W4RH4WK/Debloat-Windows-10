@@ -50,14 +50,16 @@ $apps = @(
     "king.com.CandyCrushSodaSaga"
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
+)
 
+$dism_apps = @(
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
     #"Microsoft.MicrosoftEdge"
     #"Microsoft.Windows.Cortana"
     #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
+    "Microsoft.XboxGameCallableUI"
+    "Microsoft.XboxIdentityProvider"
     #"Windows.ContactSupport"
 )
 
@@ -69,4 +71,18 @@ foreach ($app in $apps) {
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
+}
+
+foreach ($app in $dism_apps)
+{
+    echo "Trying remove $app"
+
+    $dism_app = dism /Online /Get-ProvisionedAppxpackages  | select-string $app | select-string "PackageName"
+    if ($dism_app)
+    {
+        Write-Verbose $dism_app
+        $package = $dism_app -split " : " | Select-String -NotMatch "PackageName"
+        Write-Verbose $package
+        # dism /Online /Remove-ProvisionedAppxPackage /PackageName:$package
+    }
 }
