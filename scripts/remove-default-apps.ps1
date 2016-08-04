@@ -16,21 +16,21 @@ $apps = @(
     "Microsoft.BingNews"
     "Microsoft.BingSports"
     "Microsoft.BingWeather"
-    #"Microsoft.FreshPaint"
+    "Microsoft.FreshPaint"
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.Office.OneNote"
     "Microsoft.People"
     "Microsoft.SkypeApp"
-    #"Microsoft.Windows.Photos"
+    "Microsoft.Windows.Photos"
     "Microsoft.WindowsAlarms"
-    #"Microsoft.WindowsCalculator"
+    "Microsoft.WindowsCalculator"
     "Microsoft.WindowsCamera"
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
-    #"Microsoft.WindowsStore"
+    "Microsoft.WindowsStore"
     "Microsoft.XboxApp"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
@@ -45,7 +45,7 @@ $apps = @(
 
     # non-Microsoft
     "9E2F88E3.Twitter"
-    #"Drawboard.DrawboardPDF"
+    "Drawboard.DrawboardPDF"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
@@ -53,17 +53,19 @@ $apps = @(
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
     #"TheNewYorkTimes.NYTCrossword"
-)
 
-$dism_apps = @(
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
     #"Microsoft.MicrosoftEdge"
     #"Microsoft.Windows.Cortana"
     #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
     #"Windows.ContactSupport"
+)
+
+$dism_apps = @(
+    # apps which can be removed by dism see http://bit.ly/2ax33MM
+    "Microsoft.XboxGameCallableUI"
+    "Microsoft.XboxIdentityProvider"
 )
 
 foreach ($app in $apps) {
@@ -74,4 +76,19 @@ foreach ($app in $apps) {
     Get-AppXProvisionedPackage -Online |
         where DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
+}
+
+foreach ($app in $dism_apps)
+{
+    echo "Trying to remove $app"
+
+    $dism_app = dism /Online /Get-ProvisionedAppxpackages  | select-string $app | select-string "PackageName"
+    if ($dism_app)
+    {
+        Write-Verbose $dism_app
+        $package = $dism_app -split " : " | Select-String -NotMatch "PackageName"
+        $package = $package.ToString().Trim()
+        Write-Verbose $package
+        dism /Online /Remove-ProvisionedAppxPackage /PackageName:$package
+    }
 }
