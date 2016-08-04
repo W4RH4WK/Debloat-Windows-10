@@ -53,7 +53,9 @@ $apps = @(
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
     #"TheNewYorkTimes.NYTCrossword"
+)
 
+$dism_apps = @(
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
     #"Microsoft.MicrosoftEdge"
