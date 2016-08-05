@@ -20,6 +20,7 @@ $apps = @(
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.MicrosoftStickyNotes"
     "Microsoft.Office.OneNote"
     "Microsoft.People"
     "Microsoft.SkypeApp"
