@@ -24,7 +24,7 @@ $apps = @(
     "Microsoft.Office.OneNote"
     #"Microsoft.OneConnect"
     "Microsoft.People"
-    "Microsoft.SkypeApp"
+    #"Microsoft.SkypeApp"
     #"Microsoft.Windows.Photos"
     "Microsoft.WindowsAlarms"
     #"Microsoft.WindowsCalculator"
@@ -53,7 +53,7 @@ $apps = @(
     "king.com.CandyCrushSodaSaga"
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
-    #"TheNewYorkTimes.NYTCrossword"
+    "TheNewYorkTimes.NYTCrossword"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
