@@ -1,5 +1,5 @@
 #   Description:
-# This script remove strang looking stuff which will probably result in a break
+# This script remove strange looking stuff which will probably result in a break
 # of your system.  It should not be used unless you want to test out a few
 # things. It is named `experimental_unfuckery.ps1` for a reason.
 
