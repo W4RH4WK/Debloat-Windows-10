@@ -43,7 +43,7 @@ sp "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideDriv
 echo "Setting default explorer view to This PC"
 sp "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "LaunchTo" 0
 
-# Explorer will throw an error if quick acess is removed and default view has
+# Explorer will throw an error if quick access is removed and default view has
 # not been changed to This PC.
 #echo "Removing Quick Access from explorer"
 #Takeown-Registry("HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder")
