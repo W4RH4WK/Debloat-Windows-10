@@ -33,7 +33,7 @@ echo "Setting up Chocolatey software package manager"
 Get-PackageProvider -Name chocolatey -Force
 
 echo "Installing Packages"
-Install-Package -Name $packages -Force
+Install-Package -Name $packages -Force -ProviderName chocolatey
 
 echo "Installing Sysinternals Utilities to C:\Sysinternals"
 $download_uri = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
