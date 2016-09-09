@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM]
+"ColorizationColor"=dword:C40078D7
+"ColorizationColorBalance"=dword:00000059
+"ColorizationAfterglow"=dword:C40078D7
+"ColorizationBlurBalance"=dword:00000001
+"EnableTransparency"=dword:00000000
+"ColorPrevalence"=dword:00000000
+"AccentColor"=dword:FFD77800
+"EnableWindowColorization"=dword:00000000
+"AccentColorInactive"=dword:FFFFFFFF
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"AppsUseLightTheme"=dword:00000001
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent]
+"AccentPalette"=hex:A6,D8,FF,00,76,B9,ED,00,42,9C,E3,00,00,78,D7,00,00,5A,9E,00,00,42,75,00,00,26,42,00,F7,63,0C,00
+"StartColorMenu"=dword:FF3B3C3E
+"AccentColorMenu"=dword:FF585A5D
