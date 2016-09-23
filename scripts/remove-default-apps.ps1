@@ -66,6 +66,7 @@ $apps = @(
     "2FE3CB00.PicsArt-PhotoStudio"
     "D52A8D61.FarmVille2CountryEscape"
     "TuneIn.TuneInRadio"
+    "GAMELOFTSA.Asphalt8Airborne"
     #"TheNewYorkTimes.NYTCrossword"
 
     # apps which cannot be removed using Remove-AppxPackage
