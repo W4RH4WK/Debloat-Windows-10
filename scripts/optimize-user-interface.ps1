@@ -3,6 +3,7 @@
 # disable some accessibility features regarding keyboard input.  Additional
 # some UI elements will be changed.
 
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
 echo "Elevating priviledges for this process"
@@ -32,7 +33,7 @@ sp "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "122"
 sp "HKCU:\Control Panel\Accessibility\ToggleKeys" "Flags" "58"
 
 echo "Restoring old volume slider"
-mkdir -Force "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC"
+force-mkdir "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC"
 sp "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC" "EnableMtcUvc" 0
 
 echo "Setting folder view options"
@@ -42,14 +43,6 @@ sp "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideDriv
 
 echo "Setting default explorer view to This PC"
 sp "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "LaunchTo" 1
-
-# Explorer will throw an error if quick acess is removed and default view has
-# not been changed to This PC.
-#echo "Removing Quick Access from explorer"
-#Takeown-Registry("HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder")
-#New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
-#sp "HKCR:\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}\ShellFolder" "Attributes" 0xa0600000
-#Remove-PSDrive "HKCR"
 
 echo "Removing user folders under This PC"
 # Remove Desktop from This PC
@@ -81,38 +74,6 @@ rm "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpac
 rm "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A0953C92-50DC-43bf-BE83-3742FED03C9C}"
 rm "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}"
 
-echo "Disabling login screen background image"
-mkdir -Force "HKLM:\Software\Policies\Microsoft\Windows\System"
-sp "HKLM:\Software\Policies\Microsoft\Windows\System" "DisableLogonBackgroundImage" 1
-
-echo "Disabling new lock screen"
-mkdir -Force "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" "NoLockScreen" 1
-
-echo "Disable startmenu search features"
-mkdir -Force "HKLM:\Software\Policies\Microsoft\Windows\Windows Search"
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" AllowCortana 0
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" DisableWebSearch 1
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" AllowSearchToUseLocation 0
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\" ConnectedSearchUseWeb 0
-
-echo "Disable AutoRun"
-mkdir -Force "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
-sp "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" "NoDriveTypeAutoRun" 0xff
-mkdir -Force "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
-sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" "NoDriveTypeAutoRun" 0xff
-
 #echo "Disabling tile push notification"
-#mkdir -Force "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
+#force-mkdir "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
 #sp "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" "NoTileApplicationNotification" 1
-
-#echo "Disabling screen saver"
-#sp "HKCU:\Control Panel\Desktop\" "ScreenSaveActive" "0"
-
-#echo "Use legacy advanced boot menu"
-#bcdedit.exe /set `{current`} bootmenupolicy Legacy
-
-# src: https://social.technet.microsoft.com/Forums/en-US/fa742f1a-38be-4ca2-9660-da58068214ed
-echo "Remove all tiles from start menu"
-$e = (New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}')
-$e.Items() | %{$_.Verbs()} | ?{$_.Name.replace('&','') -match 'Unpin from Start'} | %{$_.DoIt()}

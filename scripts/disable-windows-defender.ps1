@@ -1,6 +1,8 @@
 #   Description:
 # This script disables Windows Defender.
 
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
+
 $tasks = @(
     "\Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance"
     "\Microsoft\Windows\Windows Defender\Windows Defender Cleanup"
@@ -18,10 +20,10 @@ foreach ($task in $tasks) {
 }
 
 echo "Disabling Windows Defender via Group Policies"
-mkdir -Force "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender"
+force-mkdir "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender"
 sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" "DisableAntiSpyware" 1
 sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" "DisableRoutinelyTakingAction" 1
-mkdir -Force "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection"
+force-mkdir "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection"
 sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection" "DisableRealtimeMonitoring" 1
 
 echo "Removing Windows Defender context menu item"
