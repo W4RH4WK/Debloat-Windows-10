@@ -5,8 +5,10 @@ tweak common settings and install basic software components.
 
 I develop those scripts on a Windows 10 Professional 64-Bit (English) virtual
 machine. Please let me know if you encounter any issues with other Windows 10
-versions. Although I may not spend time fixing issues related to the Home
-Edition or a different language, it's still good to know what's going on.
+versions.
+
+Home Edition and different languages are not supported. Let me know of you fork
+this repo for fixing Home Edition or a different language.
 
 Note that **there is no undo**, I recommend only using these scripts on a fresh
 install (including updates). Test everything after running them before
