@@ -37,6 +37,20 @@ Unblock PowerShell scripts and modules within this directory:
 3. Run the scripts
 4. `PS > Restart-Computer`
 
+## Startmenu
+
+In the past I included small fixes to make the startmenu more usable, like
+removing default tiles, disabling web search and so on. This is no longer the
+case since I am that fed up with it. This fucking menu breaks for apparently
+know reason, is slow, is a pain to configure / script and even shows ads out of
+the box!
+
+Please replace it with something better, either use [Classic Shell] or [Start
+is Back], but stop using that shit.
+
+[Classic Shell]: <http://www.classicshell.net/>
+[Start is Back]: <http://startisback.com/>
+
 ## Known Issues
 
 ### Startmenu Search
