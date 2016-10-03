@@ -54,6 +54,7 @@ $apps = @(
 
     # non-Microsoft
     "9E2F88E3.Twitter"
+    "PandoraMediaInc.29680B314EFC2"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
