@@ -1,7 +1,5 @@
 #   Description
-# This script will apply MarkC's mouse acceleration fix (for 100% DPI) and
-# disable some accessibility features regarding keyboard input.  Additional
-# some UI elements will be changed.
+# This script will restore Windows Photo Viewer.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
