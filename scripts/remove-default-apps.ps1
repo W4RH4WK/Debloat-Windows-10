@@ -44,6 +44,7 @@ $apps = @(
     "Microsoft.ConnectivityStore"
     "Microsoft.Messaging"
     "Microsoft.Office.Sway"
+    "Microsoft.WindowsFeedbackHub"
 
 
     #Redstone apps
