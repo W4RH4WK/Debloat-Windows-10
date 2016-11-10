@@ -38,12 +38,14 @@ $apps = @(
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
     "Microsoft.MinecraftUWP"
+    
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
     "Microsoft.ConnectivityStore"
     "Microsoft.Messaging"
     "Microsoft.Office.Sway"
+    "Microsoft.OneConnect"
 
 
     #Redstone apps
@@ -69,6 +71,7 @@ $apps = @(
     "TuneIn.TuneInRadio"
     "GAMELOFTSA.Asphalt8Airborne"
     #"TheNewYorkTimes.NYTCrossword"
+    "DB6EA5DB.CyberLinkMediaSuiteEssentials"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
