@@ -38,7 +38,6 @@ $apps = @(
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
     "Microsoft.MinecraftUWP"
-    
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
@@ -46,6 +45,7 @@ $apps = @(
     "Microsoft.Messaging"
     "Microsoft.Office.Sway"
     "Microsoft.OneConnect"
+    "Microsoft.WindowsFeedbackHub"
 
 
     #Redstone apps
