@@ -4,7 +4,7 @@
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
-echo "Elevating priviledges for this process"
+echo "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 echo "Uninstalling default apps"
