@@ -72,6 +72,9 @@ $apps = @(
     "GAMELOFTSA.Asphalt8Airborne"
     #"TheNewYorkTimes.NYTCrossword"
     "DB6EA5DB.CyberLinkMediaSuiteEssentials"
+    "flaregamesGmbH.RoyalRevolt2"
+    "Facebook.Facebook"
+    
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
