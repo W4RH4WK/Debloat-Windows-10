@@ -3,6 +3,7 @@
 # to remove certain Apps comment out the corresponding lines below.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
 
 echo "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
@@ -95,3 +96,7 @@ foreach ($app in $apps) {
         where DisplayName -EQ $app |
         Remove-AppxProvisionedPackage -Online
 }
+
+# Prevents "Suggested Applications" returning
+force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content"
+sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content" "DisableWindowsConsumerFeatures" 1
