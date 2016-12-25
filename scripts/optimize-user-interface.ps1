@@ -27,6 +27,10 @@ echo "Disable mouse pointer hiding"
 sp "HKCU:\Control Panel\Desktop" "UserPreferencesMask" ([byte[]](0x9e,
 0x1e, 0x06, 0x80, 0x12, 0x00, 0x00, 0x00))
 
+echo "Disable Game DVR and Game Bar"
+force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR"
+sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" "AllowgameDVR" 0
+
 echo "Disable easy access keyboard stuff"
 sp "HKCU:\Control Panel\Accessibility\StickyKeys" "Flags" "506"
 sp "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "122"
