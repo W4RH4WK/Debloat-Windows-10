@@ -71,6 +71,11 @@ has been discovered by BK from Atlanta:
 You may now disable the GeoLocation service again, the search box should remain
 functional.
 
+### Sysprep will hang
+
+If you are deploying images with MDT and running these scripts, the sysprep
+step will hang unless `dmwappushserivce` is active.
+
 ## Interactivity
 
 The scripts are designed to run without any user-interaction. Modify them
