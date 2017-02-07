@@ -36,7 +36,6 @@ echo "Setting up Full Chocolatey Install"
 Install-Package -Name Chocolatey -Force -ProviderName chocolatey
 $chocopath = (Get-Package chocolatey | ?{$_.Name -eq "chocolatey"} | Select @{N="Source";E={((($a=($_.Source -split "\\"))[0..($a.length - 2)]) -join "\"),"Tools\chocolateyInstall" -join "\"}} | Select -ExpandProperty Source)
 & $chocopath "upgrade all -y"
-choco uninstall mm-choco.extension --all-versions
 choco install chocolatey-core.extension --force
 
 echo "Creating daily task to automatically upgrade Chocolatey packages"
