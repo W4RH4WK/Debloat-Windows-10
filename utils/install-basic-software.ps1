@@ -35,10 +35,10 @@ Get-PackageProvider -Name chocolatey -Force
 echo "Creating daily task to automatically upgrade Chocolatey packages"
 # adapted from https://blogs.technet.microsoft.com/heyscriptingguy/2013/11/23/using-scheduled-tasks-and-scheduled-jobs-in-powershell/
 $taskName = "Chocolatey Daily Upgrade"
-$taskAction = New-ScheduledTaskAction –Execute C:\programdata\chocolatey\choco.exe -Argument "upgrade all -y"
+$taskAction = New-ScheduledTaskAction -Execute C:\programdata\chocolatey\choco.exe -Argument "upgrade all -y"
 $taskTrigger = New-ScheduledTaskTrigger -At 2am -Daily
 $taskUser = "Admin"
-Register-ScheduledTask –TaskName $taskName -Action $taskAction –Trigger $taskTrigger -User $taskUser
+Register-ScheduledTask -TaskName $taskName -Action $taskAction -Trigger $taskTrigger -User $taskUser
 
 echo "Installing Packages"
 Install-Package -Name $packages -Force -ProviderName chocolatey
