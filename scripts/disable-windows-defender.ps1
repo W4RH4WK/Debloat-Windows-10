@@ -28,3 +28,7 @@ sp "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Pro
 
 echo "Removing Windows Defender context menu item"
 si "HKLM:\SOFTWARE\Classes\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}\InprocServer32" ""
+
+echo "Removing Windows Defender tray icon"
+rp HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\WindowsDefender -Name WindowsDefender -ea 0
+ps MSASCuiL -ea 0 | kill
