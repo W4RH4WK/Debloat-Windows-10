@@ -38,6 +38,8 @@ Unblock PowerShell scripts and modules within this directory:
 2. Edit the scripts to fit your need.
 3. Run the scripts
 4. `PS > Restart-Computer`
+5. Run `disable-windows-defender.ps1` one more time.
+6. `PS > Restart-Computer`
 
 ## Startmenu
 
