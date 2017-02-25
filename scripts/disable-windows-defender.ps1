@@ -43,3 +43,6 @@ sp "HKLM:\SYSTEM\CurrentControlSet\Services\Sense" "AutorunsDisabled" 3
 
 echo "Removing Windows Defender context menu item"
 si "HKLM:\SOFTWARE\Classes\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}\InprocServer32" ""
+
+echo "Removing Windows Defender GUI / tray from autorun"
+rp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\WindowsDefender" "WindowsDefender" -ea 0
