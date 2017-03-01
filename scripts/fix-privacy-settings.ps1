@@ -12,16 +12,22 @@ Write-Output "Defuse Windows search settings"
 Set-WindowsSearchSetting -EnableWebResultsSetting $false
 
 Write-Output "Set general privacy options"
+# "Let websites provide locally relevant content by accessing my language list"
 Set-ItemProperty "HKCU:\Control Panel\International\User Profile" "HttpAcceptLanguageOptOut" 1
+# Locaton aware printing (changes default based on connected network)
 force-mkdir "HKCU:\Printers\Defaults"
 Set-ItemProperty "HKCU:\Printers\Defaults" "NetID" "{00000000-0000-0000-0000-000000000000}"
+# "Send Microsoft info about how I write to help us improve typing and writing in the future"
 force-mkdir "HKCU:\SOFTWARE\Microsoft\Input\TIPC"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Input\TIPC" "Enabled" 0
+# "Let apps use my advertising ID for experiencess across apps"
 force-mkdir "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" "Enabled" 0
+# "Turn on SmartScreen Filter to check web content"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" "EnableWebContentEvaluation" 0
 
 Write-Output "Disable synchronisation of settings"
+# These only apply if you log on using Microsoft account
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync" "BackupPolicy" 0x3c
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync" "DeviceMetadataUploaded" 0
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync" "PriorLogons" 1
@@ -43,14 +49,18 @@ foreach ($group in $groups) {
 }
 
 Write-Output "Set privacy policy accepted state to 0"
+# Prevents sending speech, inking and typing samples to MS (so Cortana
+# can learn to recognise you)
 force-mkdir "HKCU:\SOFTWARE\Microsoft\Personalization\Settings"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" "AcceptedPrivacyPolicy" 0
 
 Write-Output "Do not scan contact informations"
+# Prevents sending contacts to MS (so Cortana can compare speech etc samples)
 force-mkdir "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" "HarvestContacts" 0
 
 Write-Output "Inking and typing settings"
+# Handwriting recognition personalization
 force-mkdir "HKCU:\SOFTWARE\Microsoft\InputPersonalization"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\InputPersonalization" "RestrictImplicitInkCollection" 1
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\InputPersonalization" "RestrictImplicitTextCollection" 1
@@ -71,6 +81,7 @@ foreach ($key in (Get-ChildItem "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion
 }
 
 Write-Output "Denying device access"
+# Disable sharing information with unpaired devices
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "Type" "LooselyCoupled"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "Value" "Deny"
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "InitialAppValue" "Unspecified"
