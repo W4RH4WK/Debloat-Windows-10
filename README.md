@@ -3,21 +3,30 @@
 This project collects Powershell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
-I develop those scripts on a Windows 10 Professional 64-Bit (English) virtual
-machine. Please let me know if you encounter any issues with other Windows 10
-versions.
+I test these scripts on a Windows 10 Professional 64-Bit (English) virtual
+machine. Please let me know if you encounter any issues. Home Edition and
+different languages are not supported. These scripts are intended for
+tech-savvy administrators, who know what they are doing and just want to
+automate this phase of their setup. If this profile does not fit you, I
+recommend using a different (more interactive) tool -- and there are a lot of
+them out there.
 
-Home Edition and different languages are not supported. Let me know of you fork
-this repo for fixing Home Edition or a different language.
-
-Note that **there is no undo**, I recommend only using these scripts on a fresh
-install (including updates). Test everything after running them before
-continuing with something else. Also there is no guarantee that everything will
+**There is no undo**, I recommend only using these scripts on a fresh
+installation (including Windows Updates). Test everything after running them
+before doing anything else. Also there is no guarantee that everything will
 work after future updates since I cannot predict what Microsoft will do next.
+
+## Interactivity
+
+The scripts are designed to run without any user-interaction. Modify them
+beforehand. If you want a more interactive approach check out
+[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
+[10se1ucgo](https://github.com/10se1ucgo).
 
 ## Download Latest Version
 
-Code located in the `master` branch is under development (for now).
+Code located in the `master` branch is always considered under development, but
+you'll probably want the most recent version anyway.
 
 - [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
 
@@ -85,13 +94,6 @@ Wireless Adapters to stop functioning. I suspenc one should not remove the XBox
 App when wanting to use one. But I haven't confirmed this yet, and there is a
 workaround to re-enable it afterwards. See
 [#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
-
-## Interactivity
-
-The scripts are designed to run without any user-interaction. Modify them
-beforehand. If you want a more interactive approach check out
-[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
-[10se1ucgo](https://github.com/10se1ucgo).
 
 ## Liability
 
