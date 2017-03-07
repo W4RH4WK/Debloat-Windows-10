@@ -11,6 +11,7 @@ sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
 echo "Adding telemetry domains to hosts file"
 $hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
 $domains = @(
+    "184-86-53-99.deploy.static.akamaitechnologies.com"
     "a-0001.a-msedge.net"
     "a-0002.a-msedge.net"
     "a-0003.a-msedge.net"
@@ -161,6 +162,7 @@ $ips = @(
     "134.170.30.202"
     "137.116.81.24"
     "157.56.106.189"
+    "184.86.53.99"
     "2.22.61.43"
     "2.22.61.66"
     "204.79.197.200"
