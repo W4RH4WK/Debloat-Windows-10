@@ -19,7 +19,6 @@ if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
 echo "Removing OneDrive leftovers"
 rm -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Microsoft\OneDrive"
 rm -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
-rm -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
 rm -Recurse -Force -ErrorAction SilentlyContinue "C:\OneDriveTemp"
 
 echo "Disable OneDrive via Group Policies"
