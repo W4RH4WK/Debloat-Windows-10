@@ -1,4 +1,5 @@
 * text=auto
+*.bat  text eol=crlf
 *.ps1  text eol=crlf
 *.psm1 text eol=crlf
 *.reg  text eol=crlf
