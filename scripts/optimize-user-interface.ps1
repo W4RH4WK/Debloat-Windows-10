@@ -6,6 +6,9 @@
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
+# Create a new PSDrive to the HKEY_USERS hive
+New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS
+
 echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
@@ -82,3 +85,6 @@ rm "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyCompu
 #echo "Disabling tile push notification"
 #force-mkdir "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
 #sp "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" "NoTileApplicationNotification" 1
+
+echo "Enable Num Lock on logon and lock screen"
+sp "HKU:\.DEFAULT\Control Panel\Keyboard" "InitialKeyboardIndicators" 2
