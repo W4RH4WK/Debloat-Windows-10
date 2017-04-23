@@ -19,9 +19,12 @@ $needles = @(
     "Feedback"
     "Flash"
     "Gaming"
+    #"Holo"
     #"InternetExplorer"
     #"Maps"
+    #"MiracastView"
     "OneDrive"
+    #"SecHealthUI"
     #"Wallet"
     #"Xbox"          # This will result in a bootloop since upgrade 1511
 )
