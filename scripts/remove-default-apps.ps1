@@ -27,7 +27,7 @@ $apps = @(
     "Microsoft.People"
     #"Microsoft.SkypeApp"
     #"Microsoft.Windows.Photos"
-    "Microsoft.WindowsAlarms"
+    #"Microsoft.WindowsAlarms"
     #"Microsoft.WindowsCalculator"
     #"Microsoft.WindowsCamera"
     "Microsoft.WindowsMaps"
