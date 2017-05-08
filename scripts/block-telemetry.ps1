@@ -122,6 +122,7 @@ $domains = @(
     "vortex.data.microsoft.com"
     "vortex-sandbox.data.microsoft.com"
     "vortex-win.data.microsoft.com"
+    "cy2.vortex.data.microsoft.com.akadns.net"
     "watson.live.com"
     "watson.microsoft.com"
     "watson.ppe.telemetry.microsoft.com"
@@ -170,6 +171,7 @@ $ips = @(
     "65.39.117.230"
     "65.52.108.33"
     "65.55.108.23"
+    "64.4.54.254"
 )
 Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue
 New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
