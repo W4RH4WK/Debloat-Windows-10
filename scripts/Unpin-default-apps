@@ -1,0 +1,64 @@
+#Source taken from http://community.cognetic.com/index.php?topic=53.0
+#Original poster: bflores
+#This script does not require to be run as administrator 
+
+function Pin-App { param(
+[string]$appname,
+[switch]$unpin
+)
+try{
+    if ($unpin.IsPresent){
+        ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $appname}).Verbs() | ?{$_.Name.replace('&','') -match 'From "Start" UnPin|Unpin from Start|Atsegti nuo pradžios ekrano'} | %{$_.DoIt()}
+        return "App '$appname' unpinned from Start"
+    }else{
+        ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $appname}).Verbs() | ?{$_.Name.replace('&','') -match 'To "Start" Pin|Pin to Start|Prisegti pradžios ekrane|Prisegti prie pradžios erano'} | %{$_.DoIt()}
+        return "App '$appname' pinned to Start"
+    }
+}catch{
+Write-Error "Error Pinning/Unpinning App! (App-Name correct?)"
+}
+}
+
+
+#Haven't been fully tested with Ads: 
+#Drawboard PDF,
+#Asphalt 8: Airborne
+#Fallout Shelter
+#For now it seems to NOT WORK with them, I'm not the author of the script, so it might need some modifications of advanced powershell programmer.
+
+#How to manually update script to your own Windows language:
+#1.Copy and paste this path: shell:::{4234d49b-0245-4df3-b780-3893943456e1} into File Explorer: 
+#2.From the opened folder: copy and paste names of the shortcuts into the list of this script below.
+#3.Now right click on any shortcut stored in shell:::{4234d49b-0245-4df3-b780-3893943456e1}
+#4.And manually write down context menu option name of "Unpin from Start" that is presented in your own/current windows language.
+#5.Search in this script for "-match 'From "Start" UnPin|Unpin from Start|" and add context name to the list.
+#6.Example: 
+#...          -match 'From "Start" UnPin|Unpin from Start|Your language unpin option name|Atsegti nuo pradžios ekrano'} | %{$_.DoIt()}
+
+
+#Lithuanian language
+
+Pin-App "Parduotuvė" -unpin
+Pin-App "Nuotraukos" -unpin
+Pin-App "Skaičiuotuvas" -unpin
+
+pause
+
+#English language
+
+Pin-App "Mail" -unpin
+Pin-App "Store" -unpin
+Pin-App "Calendar" -unpin
+Pin-App "Microsoft Edge" -unpin
+in-App "Photos" -unpin
+Pin-App "Cortana" -unpin
+Pin-App "Weather" -unpin
+Pin-App "Phone Companion" -unpin
+Pin-App "Music" -unpin
+Pin-App "xbox" -unpin
+Pin-App "movies & tv" -unpin
+Pin-App "microsoft solitaire collection" -unpin
+Pin-App "money" -unpin
+Pin-App "get office" -unpin
+Pin-App "onenote" -unpin
+Pin-App "news" -unpin
