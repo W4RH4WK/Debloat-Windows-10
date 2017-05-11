@@ -41,8 +41,7 @@ Write-Error "Error Pinning/Unpinning App! (App-Name correct?)"
 Pin-App "Parduotuvė" -unpin
 Pin-App "Nuotraukos" -unpin
 Pin-App "Skaičiuotuvas" -unpin
-
-pause
+#... To be continued... SOMEBODY once told me the world is gonna roll me
 
 #English language
 
