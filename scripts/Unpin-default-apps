@@ -8,7 +8,7 @@ function Pin-App { param(
 )
 try{
     if ($unpin.IsPresent){
-        ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $appname}).Verbs() | ?{$_.Name.replace('&','') -match 'From "Start" UnPin|Unpin from Start|Atsegti nuo pradžios ekrano'} | %{$_.DoIt()}
+        ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $appname}).Verbs() | ?{$_.Name.replace('&','') -match 'From "Start" UnPin|Unpin from Start|Atsegti nuo pradžios ekrano|Atsegti nuo užduočių juostos'} | %{$_.DoIt()}
         return "App '$appname' unpinned from Start"
     }else{
         ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $appname}).Verbs() | ?{$_.Name.replace('&','') -match 'To "Start" Pin|Pin to Start|Prisegti pradžios ekrane|Prisegti prie pradžios erano'} | %{$_.DoIt()}
@@ -33,7 +33,7 @@ Write-Error "Error Pinning/Unpinning App! (App-Name correct?)"
 #4.And manually write down context menu option name of "Unpin from Start" that is presented in your own/current windows language.
 #5.Search in this script for "-match 'From "Start" UnPin|Unpin from Start|" and add context name to the list.
 #6.Example: 
-#...          -match 'From "Start" UnPin|Unpin from Start|Your language unpin option name|Atsegti nuo pradžios ekrano'} | %{$_.DoIt()}
+#...          -match 'From "Start" UnPin|Unpin from Start|Your language unpin option name|Atsegti nuo pradžios ekrano|Atsegti nuo užduočių juostos'} | %{$_.DoIt()}
 
 
 #Lithuanian language
