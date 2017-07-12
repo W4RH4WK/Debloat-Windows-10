@@ -76,6 +76,9 @@ $apps = @(
     "Facebook.Facebook"
     "flaregamesGmbH.RoyalRevolt2"
     "Playtika.CaesarsSlotsFreeCasino"
+    "A278AB0D.MarchofEmpires"
+    "KeeperSecurityInc.Keeper"
+    "ThumbmunkeysLtd.PhototasticCollage"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
