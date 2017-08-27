@@ -25,14 +25,14 @@ $apps = @(
     "Microsoft.Office.OneNote"
     #"Microsoft.OneConnect"
     "Microsoft.People"
-    "Microsoft.SkypeApp"
+    #"Microsoft.SkypeApp"
     #"Microsoft.Windows.Photos"
-    "Microsoft.WindowsAlarms"
+    #"Microsoft.WindowsAlarms"
     #"Microsoft.WindowsCalculator"
-    "Microsoft.WindowsCamera"
+    #"Microsoft.WindowsCamera"
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
-    "Microsoft.WindowsSoundRecorder"
+    #"Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"
     "Microsoft.XboxApp"
     "Microsoft.ZuneMusic"
@@ -103,3 +103,4 @@ foreach ($app in $apps) {
 # Prevents "Suggested Applications" returning
 force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content"
 sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content" "DisableWindowsConsumerFeatures" 1
+pause

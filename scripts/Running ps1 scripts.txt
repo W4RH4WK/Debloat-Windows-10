@@ -1,0 +1,2 @@
+powershell -noexit -executionpolicy bypass -File remove-default-apps.ps1
+powershell -noexit -executionpolicy bypass -File disable-services
