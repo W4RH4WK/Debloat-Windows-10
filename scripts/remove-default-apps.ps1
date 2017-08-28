@@ -79,6 +79,8 @@ $apps = @(
     "A278AB0D.MarchofEmpires"
     "KeeperSecurityInc.Keeper"
     "ThumbmunkeysLtd.PhototasticCollage"
+    "XINGAG.XING"
+    "89006A2E.AutodeskSketchBook"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
