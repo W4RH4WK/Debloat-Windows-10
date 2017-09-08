@@ -39,7 +39,9 @@ $apps = @(
     "Microsoft.ZuneVideo"
     "microsoft.windowscommunicationsapps"
     "Microsoft.MinecraftUWP"
-
+    "Microsoft.MicrosoftPowerBIForWindows"
+    "Microsoft.NetworkSpeedTest"
+    
     # Threshold 2 apps
     "Microsoft.CommsPhone"
     "Microsoft.ConnectivityStore"
@@ -81,6 +83,10 @@ $apps = @(
     "ThumbmunkeysLtd.PhototasticCollage"
     "XINGAG.XING"
     "89006A2E.AutodeskSketchBook"
+    "D5EA27B7.Duolingo-LearnLanguagesforFree"
+    "46928bounde.EclipseManager"
+    "ActiproSoftwareLLC.562882FEEB491" # next one is for the Code Writer from Actipro Software LLC
+
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
