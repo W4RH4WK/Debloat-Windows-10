@@ -42,6 +42,9 @@ reg unload "hku\Default"
 echo "Removing startmenu entry"
 rm -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
+echo "Removing scheduled task"
+Get-ScheduledTask -TaskPath '\' -TaskName 'OneDrive*' -ea SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
+
 echo "Restarting explorer"
 start "explorer.exe"
 
