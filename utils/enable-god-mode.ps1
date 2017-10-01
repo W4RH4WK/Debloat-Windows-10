@@ -1,7 +1,7 @@
 #   Description:
 # This scripts places the "God Mode" folder on the current user's desktop.
 
-echo @"
+Write-Output @"
 ###############################################################################
 #       _______  _______  ______     __   __  _______  ______   _______       #
 #      |       ||       ||      |   |  |_|  ||       ||      | |       |      #
