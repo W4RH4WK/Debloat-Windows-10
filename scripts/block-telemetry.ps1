@@ -10,11 +10,11 @@
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
 
-echo "Disabling telemetry via Group Policies"
+Write-Output "Disabling telemetry via Group Policies"
 force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
-sp "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
+Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
 
-echo "Adding telemetry domains to hosts file"
+Write-Output "Adding telemetry domains to hosts file"
 $hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
 $domains = @(
     "184-86-53-99.deploy.static.akamaitechnologies.com"
@@ -157,14 +157,14 @@ $domains = @(
     "m.hotmail.com"
     "s.gateway.messenger.live.com"              # can cause issues with Skype
 )
-echo "" | Out-File -Encoding ASCII -Append $hosts_file
+Write-Output "" | Out-File -Encoding ASCII -Append $hosts_file
 foreach ($domain in $domains) {
     if (-Not (Select-String -Path $hosts_file -Pattern $domain)) {
-        echo "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
+        Write-Output "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
     }
 }
 
-echo "Adding telemetry ips to firewall"
+Write-Output "Adding telemetry ips to firewall"
 $ips = @(
     "134.170.30.202"
     "137.116.81.24"
