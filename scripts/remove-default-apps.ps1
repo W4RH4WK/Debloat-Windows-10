@@ -88,6 +88,8 @@ $apps = @(
     "ActiproSoftwareLLC.562882FEEB491" # next one is for the Code Writer from Actipro Software LLC
     "DolbyLaboratories.DolbyAccess"
     "SpotifyAB.SpotifyMusic"
+    "A278AB0D.DisneyMagicKingdoms"
+    "WinZipComputing.WinZipUniversal"
 
 
     # apps which cannot be removed using Remove-AppxPackage
