@@ -31,4 +31,5 @@ $services = @(
 foreach ($service in $services) {
     Write-Output "Trying to disable $service"
     Get-Service -Name $service | Set-Service -StartupType Disabled
+    Stop-Service $service -ErrorAction SilentlyContinue
 }
