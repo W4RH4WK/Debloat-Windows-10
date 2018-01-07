@@ -203,5 +203,5 @@ foreach ($task in $tasks) {
     $name = $parts[-1]
     $path = $parts[0..($parts.length-2)] -join '\'
 
-    Disable-ScheduledTask -TaskName "$name" -TaskPath "$path"
+    Disable-ScheduledTask -TaskName "$name" -TaskPath "$path" -ErrorAction SilentlyContinue
 }

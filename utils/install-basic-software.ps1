@@ -32,16 +32,24 @@ $packages = @(
 echo "Setting up Chocolatey software package manager"
 Get-PackageProvider -Name chocolatey -Force
 
+echo "Setting up Full Chocolatey Install"
+Install-Package -Name Chocolatey -Force -ProviderName chocolatey
+$chocopath = (Get-Package chocolatey | ?{$_.Name -eq "chocolatey"} | Select @{N="Source";E={((($a=($_.Source -split "\\"))[0..($a.length - 2)]) -join "\"),"Tools\chocolateyInstall" -join "\"}} | Select -ExpandProperty Source)
+& $chocopath "upgrade all -y"
+choco install chocolatey-core.extension --force
+
 echo "Creating daily task to automatically upgrade Chocolatey packages"
 # adapted from https://blogs.technet.microsoft.com/heyscriptingguy/2013/11/23/using-scheduled-tasks-and-scheduled-jobs-in-powershell/
-$taskName = "Chocolatey Daily Upgrade"
-$taskAction = New-ScheduledTaskAction –Execute C:\programdata\chocolatey\choco.exe -Argument "upgrade all -y"
-$taskTrigger = New-ScheduledTaskTrigger -At 2am -Daily
-$taskUser = "Admin"
-Register-ScheduledTask –TaskName $taskName -Action $taskAction –Trigger $taskTrigger -User $taskUser
+$ScheduledJob = @{
+    Name = "Chocolatey Daily Upgrade"
+    ScriptBlock = {choco upgrade all -y}
+    Trigger = New-JobTrigger -Daily -at 2am
+    ScheduledJobOption = New-ScheduledJobOption -RunElevated -MultipleInstancePolicy StopExisting -RequireNetwork
+}
+Register-ScheduledJob @ScheduledJob
 
 echo "Installing Packages"
-Install-Package -Name $packages -Force -ProviderName chocolatey
+$packages | %{choco install $_ --force -y}
 
 echo "Installing Sysinternals Utilities to C:\Sysinternals"
 $download_uri = "https://download.sysinternals.com/files/SysinternalsSuite.zip"

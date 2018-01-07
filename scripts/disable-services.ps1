@@ -5,7 +5,7 @@
 $services = @(
     "diagnosticshub.standardcollector.service" # Microsoft (R) Diagnostics Hub Standard Collector Service
     "DiagTrack"                                # Diagnostics Tracking Service
-    "dmwappushservice"                         # WAP Push Message Routing Service
+    "dmwappushservice"                         # WAP Push Message Routing Service (see known issues)
     "HomeGroupListener"                        # HomeGroup Listener
     "HomeGroupProvider"                        # HomeGroup Provider
     "lfsvc"                                    # Geolocation Service
@@ -29,6 +29,6 @@ $services = @(
 )
 
 foreach ($service in $services) {
-    echo "Trying to disable $service"
+    Write-Output "Trying to disable $service"
     Get-Service -Name $service | Set-Service -StartupType Disabled
 }
