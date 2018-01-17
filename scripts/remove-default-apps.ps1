@@ -19,9 +19,9 @@ $apps = @(
     #"Microsoft.FreshPaint"
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
-    "Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.MicrosoftSolitaireCollection"
     #"Microsoft.MicrosoftStickyNotes"
-    "Microsoft.Office.OneNote"
+    #"Microsoft.Office.OneNote"
     #"Microsoft.OneConnect"
     "Microsoft.People"
     "Microsoft.SkypeApp"
@@ -45,29 +45,14 @@ $apps = @(
     "Microsoft.Messaging"
     "Microsoft.Office.Sway"
 
-
-    #Redstone apps
-    "Microsoft.BingFoodAndDrink"
-    "Microsoft.BingTravel"
-    "Microsoft.BingHealthAndFitness"
-    "Microsoft.WindowsReadingList"
-
     # non-Microsoft
     "9E2F88E3.Twitter"
-    "PandoraMediaInc.29680B314EFC2"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"
     "king.com.CandyCrushSaga"
     "king.com.CandyCrushSodaSaga"
     "king.com.*"
     "ClearChannelRadioDigital.iHeartRadio"
-    "4DF9E0F8.Netflix"
-    "6Wunderkinder.Wunderlist"
-    "Drawboard.DrawboardPDF"
-    "2FE3CB00.PicsArt-PhotoStudio"
-    "D52A8D61.FarmVille2CountryEscape"
-    "TuneIn.TuneInRadio"
-    "GAMELOFTSA.Asphalt8Airborne"
     #"TheNewYorkTimes.NYTCrossword"
 
     # apps which cannot be removed using Remove-AppxPackage

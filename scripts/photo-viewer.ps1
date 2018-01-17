@@ -28,7 +28,8 @@ sp "HKCR:\Applications\photoviewer.dll\shell\print\command" '(default)' "%System
 sp "HKCR:\Applications\photoviewer.dll\shell\print\DropTarget]" "Clsid" "{60fd46de-f830-4894-a628-6fa81bc0190d}"
 
 echo "Set default association for Photo Viewer"
-# Dism /Online /Import-DefaultAppAssociations:.\AppAssoc.xml
+# cmd /c assoc /?
+# cmd /c ftype /?
 
 mkdir -Force "HKCR:\PhotoViewer.FileAssoc.Bitmap\DefaultIcon"
 mkdir -Force "HKCR:\PhotoViewer.FileAssoc.Bitmap\shell\open\command"
