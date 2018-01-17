@@ -1,4 +1,4 @@
-Disable-ScheduledTask RtHDVBg_PushButton | Out-Null
+Disable-ScheduledTask RtHDVBg_PushButton -ErrorAction SilentlyContinue | Out-Null
 
 # Realtek Audio Service
 Stop-Service RtkAudioService
