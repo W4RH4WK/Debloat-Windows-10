@@ -1,12 +1,13 @@
 #   Description:
 # This script removes unwanted Apps that come with Windows. If you  do not want
 # to remove certain Apps comment out the corresponding lines below.
+# Script Author: W4RH4WK
+# Script Source: https://github.com/W4RH4WK/Debloat-Windows-10
+# 2018.01.18: William Myers: Moddified code to try a pass within user context, modified verbosity to only output removal of presently installed apps.
+
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
-
-Write-Output "Elevating privileges for this process"
-do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 Write-Output "Uninstalling default apps"
 $apps = @(
@@ -56,6 +57,14 @@ $apps = @(
     "Microsoft.BingTravel"
     "Microsoft.BingHealthAndFitness"
     "Microsoft.WindowsReadingList"
+    
+     #Redstone2 apps
+    "Microsoft.Microsoft3DViewer"
+    "Microsoft.MSPaint" # Paint 3D
+    "Microsoft.Microsoft3DViewer"
+    "61908RichardWalters.Calculator" # Calculator 2
+    "Microsoft.BingTranslator"
+
 
     # non-Microsoft
     "9E2F88E3.Twitter"
@@ -90,6 +99,8 @@ $apps = @(
     "SpotifyAB.SpotifyMusic"
     "A278AB0D.DisneyMagicKingdoms"
     "WinZipComputing.WinZipUniversal"
+    "AdobeSystemsIncorporated.AdobePhotoshopExpress"
+
 
 
     # apps which cannot be removed using Remove-AppxPackage
@@ -102,14 +113,35 @@ $apps = @(
     #"Windows.ContactSupport"
 )
 
+# Current User
 foreach ($app in $apps) {
-    Write-Output "Trying to remove $app"
+   
+   # Attempt to remove the apps for all users (This will fail if a user has downloaded any updates for the app)
+    $AppXInstall = Get-AppxPackage -Name $app -EA Continue 
+    if ($AppXInstall){
+        Write-Output "Trying to remove $app for $ENV:UserName"
 
-    Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
+        $AppXInstall | Remove-AppxPackage 
+    }
+}
 
-    Get-AppXProvisionedPackage -Online |
-        Where-Object DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
+# All users
+
+Write-Output "Elevating privileges for this process"
+do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
+
+foreach ($app in $apps) {
+   
+   # Attempt to remove the apps for all users (This will fail if a user has downloaded any updates for the app)
+    $AppXInstall = Get-AppxPackage -Name $app -AllUsers -EA Continue 
+    if ($AppXInstall){
+     Write-Output "Trying to remove $app for all users"
+
+        $AppXInstall | Remove-AppxPackage -AllUsers
+        Get-AppXProvisionedPackage -Online |
+            Where-Object DisplayName -EQ $app |
+            Remove-AppxProvisionedPackage -Online
+    }
 }
 
 # Prevents "Suggested Applications" returning
