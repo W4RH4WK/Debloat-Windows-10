@@ -132,7 +132,7 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 foreach ($app in $apps) {
    
-   # Attempt to remove the apps for all users (This will fail if a user has downloaded any updates for the app)
+   # Attempt to remove the apps for the current user
     $AppXInstall = Get-AppxPackage -Name $app -AllUsers -EA Continue 
     if ($AppXInstall){
      Write-Output "Trying to remove $app for all users"
