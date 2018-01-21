@@ -14,7 +14,7 @@ $needles = @(
 	"BioEnrollment"
 	#"Browser"
 	"ContactSupport"
-	#"Cortana"       # This will disable startmenu search.
+	#"Cortana"                    # This will disable startmenu search.
 	#"Defender"
 	"Feedback"
 	"Flash"
@@ -23,7 +23,7 @@ $needles = @(
 	#"Maps"
 	"OneDrive"
 	#"Wallet"
-	#"Xbox"          # This will result in a bootloop since upgrade 1511
+	#"Xbox"                       # This will result in a bootloop since upgrade 1511
 )
 
 foreach ($needle in $needles) {
