@@ -30,7 +30,7 @@ $domains = @(
 	"a1621.g.akamai.net"
 	"a1856.g2.akamai.net"
 	"a1961.g.akamai.net"
-	#"a248.e.akamai.net"            # makes iTunes download button disappear (#43)
+	#"a248.e.akamai.net"                               # makes iTunes download button disappear (#43)
 	"a978.i6g1.akamai.net"
 	"a.ads1.msn.com"
 	"a.ads2.msads.net"
@@ -59,7 +59,7 @@ $domains = @(
 	"cds26.ams9.msecn.net"
 	"choice.microsoft.com"
 	"choice.microsoft.com.nsatc.net"
-	"c.msn.com" # can cause issues with Skype
+	"c.msn.com"                                        # can cause issues with Skype
 	"compatexchange.cloudapp.net"
 	"corpext.msitadfs.glbdns2.microsoft.com"
 	"corp.sts.microsoft.com"
@@ -151,11 +151,11 @@ $domains = @(
 	"watson.telemetry.microsoft.com",
 	"watson.telemetry.microsoft.com.nsatc.net"
 	"wes.df.telemetry.microsoft.com"
-	"ui.skype.com",# can cause issues with Skype
-	"pricelist.skype.com" # can cause issues with Skype
-	"apps.skype.com" # can cause issues with Skype
+	"ui.skype.com",                                    # can cause issues with Skype
+	"pricelist.skype.com"                              # can cause issues with Skype
+	"apps.skype.com"                                   # can cause issues with Skype
 	"m.hotmail.com"
-	"s.gateway.messenger.live.com" # can cause issues with Skype
+	"s.gateway.messenger.live.com"                     # can cause issues with Skype
 )
 Write-Output "" | Out-File -Encoding ASCII -Append $hosts_file
 foreach ($domain in $domains) {
