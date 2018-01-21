@@ -4,7 +4,7 @@
 Creators Update. Anything may happen, be prepared. I'll look into relevant
 changes and recent issues when the update is released / pushed on to everyone.
 
-This project collects Powershell scripts which help to *debloat* Windows 10,
+This project collects PowerShell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
 I test these scripts on a Windows 10 Professional 64-Bit (English) virtual
@@ -49,7 +49,7 @@ Unblock PowerShell scripts and modules within this directory:
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the scripts from a PowerShell with administrator priviledges (Explorer
+3. Run the scripts from a PowerShell with administrator privileges (Explorer
    `Files > Open Windows PowerShell > Open Windows PowerShell as
    administrator`)
 4. `PS > Restart-Computer`
@@ -75,7 +75,7 @@ is Back], but stop using that shit.
 ### Startmenu Search
 
 After running the scripts, the startmenu search-box may no longer work on newly
-created accounts. It seems like there is an issue with account initilization
+created accounts. It seems like there is an issue with account initialization
 that is triggered when disabling the GeoLocation service. Following workaround
 has been discovered by BK from Atlanta:
 
@@ -96,7 +96,7 @@ step will hang unless `dmwappushserivce` is active.
 ### XBox Wireless Adapter
 
 Apprently running the stock `remove-default-apps` script will cause XBox
-Wireless Adapters to stop functioning. I suspenc one should not remove the XBox
+Wireless Adapters to stop functioning. I suspect one should not remove the XBox
 App when wanting to use one. But I haven't confirmed this yet, and there is a
 workaround to re-enable it afterwards. See
 [#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
