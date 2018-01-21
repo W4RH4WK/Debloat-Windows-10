@@ -93,11 +93,11 @@ functional.
 If you are deploying images with MDT and running these scripts, the sysprep
 step will hang unless `dmwappushserivce` is active.
 
-### XBox Wireless Adapter
+### Xbox Wireless Adapter
 
-Apprently running the stock `remove-default-apps` script will cause XBox
-Wireless Adapters to stop functioning. I suspect one should not remove the XBox
-App when wanting to use one. But I haven't confirmed this yet, and there is a
+Apparently running the stock `remove-default-apps` script will cause Xbox
+Wireless Adapters to stop functioning. You shouldn't remove the Xbox
+App when you plan to use apps which are depending on it (I haven't confirmed this yet). There anyway is a
 workaround to re-enable it afterwards. See
 [#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
 
