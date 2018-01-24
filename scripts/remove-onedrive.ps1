@@ -10,10 +10,10 @@ taskkill.exe /F /IM "explorer.exe"
 
 Write-Output "Remove OneDrive"
 if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
-    & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
+  & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
 }
 if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
-    & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
+  & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
 }
 
 Write-Output "Removing OneDrive leftovers"
@@ -21,8 +21,8 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Mic
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:systemdrive\OneDriveTemp"
 # check if directory is empty before removing:
-If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count -eq 0) {
-    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
+if ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).count -eq 0) {
+  Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
 }
 
 Write-Output "Disable OneDrive via Group Policies"
@@ -57,6 +57,6 @@ Start-Sleep 10
 
 Write-Output "Removing additional OneDrive leftovers"
 foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
-    Takeown-Folder $item.FullName
-    Remove-Item -Recurse -Force $item.FullName
+  Takeown-Folder $item.FullName
+  Remove-Item -Recurse -Force $item.FullName
 }
