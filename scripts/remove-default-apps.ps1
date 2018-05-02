@@ -59,6 +59,9 @@ $apps = @(
     "Microsoft.OneConnect"
     "Microsoft.WindowsFeedbackHub"
 
+    # Creators Update apps
+    "Microsoft.Microsoft3DViewer"
+    #"Microsoft.MSPaint"
 
     #Redstone apps
     "Microsoft.BingFoodAndDrink"
