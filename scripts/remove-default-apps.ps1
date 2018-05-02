@@ -49,6 +49,10 @@ $apps = @(
     "Microsoft.ZuneVideo"
     
     
+    # Windows 1907
+    # Paint3D
+    #"Microsoft.MSPaint"
+    
     # Threshold 2 apps
     "Microsoft.CommsPhone"
     "Microsoft.ConnectivityStore"
