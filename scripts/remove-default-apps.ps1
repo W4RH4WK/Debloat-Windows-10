@@ -13,6 +13,7 @@ $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
     "Microsoft.Appconnector"
+    "Microsoft.Advertising.Xaml" 
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
@@ -42,7 +43,7 @@ $apps = @(
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"
     "Microsoft.XboxApp"
-	"Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGameOverlay"
     "Microsoft.XboxIdentityProvider"
     "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.ZuneMusic"
@@ -103,7 +104,8 @@ $apps = @(
     "SpotifyAB.SpotifyMusic"
     "A278AB0D.DisneyMagicKingdoms"
     "WinZipComputing.WinZipUniversal"
-
+    "CAF9E577.Plex"  
+    "7EE7776C.LinkedInforWindows"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
