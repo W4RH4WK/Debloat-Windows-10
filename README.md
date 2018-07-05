@@ -101,6 +101,13 @@ App when wanting to use one. But I haven't confirmed this yet, and there is a
 workaround to re-enable it afterwards. See
 [#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
 
+### Issues with Skype
+
+Some of the domains blocked by adding them to the hosts-file are required for
+Skype. I highly disencourage using Skype, however some people may not have
+the option to use an alternative. See the
+[corresponding issue](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
+
 ## Liability
 
 **All scripts are provided as is and you use them at your own risk.**
