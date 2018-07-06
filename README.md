@@ -106,7 +106,7 @@ workaround to re-enable it afterwards. See
 Some of the domains blocked by adding them to the hosts-file are required for
 Skype. I highly disencourage using Skype, however some people may not have
 the option to use an alternative. See the
-[corresponding issue](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
+[#79](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
 
 ## Liability
 

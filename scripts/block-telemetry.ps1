@@ -59,7 +59,6 @@ $domains = @(
     "cds26.ams9.msecn.net"
     "choice.microsoft.com"
     "choice.microsoft.com.nsatc.net"
-    "c.msn.com"                                 # can cause issues with Skype
     "compatexchange.cloudapp.net"
     "corpext.msitadfs.glbdns2.microsoft.com"
     "corp.sts.microsoft.com"
@@ -144,7 +143,6 @@ $domains = @(
     "wdcp.microsoft.com"
     "dns.msftncsi.com"
     "storeedgefd.dsx.mp.microsoft.com"
-    "login.live.com"
     "wdcpalt.microsoft.com"
     "settings-ssl.xboxlive.com"
     "settings-ssl.xboxlive.com-c.edgekey.net"
@@ -154,7 +152,7 @@ $domains = @(
     "insiderservice.trafficmanager.net"
     "e3843.g.akamaiedge.net"
     "flightingserviceweurope.cloudapp.net"
-    "sls.update.microsoft.com" # wird ignoriert res. umgangen
+    "sls.update.microsoft.com"
     "static.ads-twitter.com"
     "www-google-analytics.l.google.com"
     "p.static.ads-twitter.com"
@@ -171,7 +169,7 @@ $domains = @(
     "adservice.google.com"
     "googleads.g.doubleclick.net"
     "pagead46.l.doubleclick.net"
-    "hubspot.net.edgekey.net" #trotz Deaktivierung von hubspot
+    "hubspot.net.edgekey.net"
     "insiderppe.cloudapp.net" # Feedback-Hub
     "livetileedge.dsx.mp.microsoft.com"
     
@@ -179,19 +177,23 @@ $domains = @(
     # extra
     "fe2.update.microsoft.com.akadns.net"
     "s0.2mdn.net"
-    "statsfe2.update.microsoft.com.akadns.net",
+    "statsfe2.update.microsoft.com.akadns.net"
     "survey.watson.microsoft.com"
     "view.atdmt.com"
-    "watson.microsoft.com",
+    "watson.microsoft.com"
     "watson.ppe.telemetry.microsoft.com"
-    "watson.telemetry.microsoft.com",
+    "watson.telemetry.microsoft.com"
     "watson.telemetry.microsoft.com.nsatc.net"
     "wes.df.telemetry.microsoft.com"
-    "ui.skype.com",                             # can cause issues with Skype
-    "pricelist.skype.com"                       # can cause issues with Skype
-    "apps.skype.com"                            # can cause issues with Skype
     "m.hotmail.com"
-    "s.gateway.messenger.live.com"              # can cause issues with Skype
+
+    # can cause issues with Skype (#79)
+    "apps.skype.com"
+    "c.msn.com"
+    "login.live.com"
+    "pricelist.skype.com"
+    "s.gateway.messenger.live.com"
+    "ui.skype.com"
 )
 Write-Output "" | Out-File -Encoding ASCII -Append $hosts_file
 foreach ($domain in $domains) {
