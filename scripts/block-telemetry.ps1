@@ -142,7 +142,7 @@ $domains = @(
     "client.wns.windows.com"
     "wdcp.microsoft.com"
     "dns.msftncsi.com"
-    "storeedgefd.dsx.mp.microsoft.com"
+    #"storeedgefd.dsx.mp.microsoft.com" # breaks Windows Store
     "wdcpalt.microsoft.com"
     "settings-ssl.xboxlive.com"
     "settings-ssl.xboxlive.com-c.edgekey.net"
