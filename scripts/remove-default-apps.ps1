@@ -44,6 +44,7 @@ $apps = @(
     #"Microsoft.WindowsStore"
     "Microsoft.XboxApp"
     "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGamingOverlay"
     "Microsoft.XboxIdentityProvider"
     "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.ZuneMusic"
