@@ -187,7 +187,7 @@ $domains = @(
     "wes.df.telemetry.microsoft.com"
     "m.hotmail.com"
 
-    # can cause issues with Skype (#79)
+    # can cause issues with Skype (#79) or other services (#171)
     "apps.skype.com"
     "c.msn.com"
     "login.live.com"
