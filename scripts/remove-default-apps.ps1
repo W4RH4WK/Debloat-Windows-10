@@ -154,6 +154,6 @@ force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore"
 Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDownload" 2
 
 # Prevents "Suggested Applications" returning
-force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content"
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Cloud Content" "DisableWindowsConsumerFeatures" 1
+force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
+Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
 
