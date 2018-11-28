@@ -36,6 +36,9 @@ Set-ItemProperty "HKCU:\Control Panel\Accessibility\StickyKeys" "Flags" "506"
 Set-ItemProperty "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "122"
 Set-ItemProperty "HKCU:\Control Panel\Accessibility\ToggleKeys" "Flags" "58"
 
+Write-Output "Disable Edge desktop shortcut on new profiles"
+New-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer -Name DisableEdgeDesktopShortcutCreation -PropertyType DWORD -Value 1
+
 Write-Output "Restoring old volume slider"
 force-mkdir "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC"
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC" "EnableMtcUvc" 0
