@@ -120,7 +120,6 @@ $domains = @(
     "telecommand.telemetry.microsoft.com"
     "telecommand.telemetry.microsoft.com.nsatc.net"
     "telemetry.appex.bing.net"
-    "telemetry.appex.bing.net:443"
     "telemetry.microsoft.com"
     "telemetry.urs.microsoft.com"
     "vortex-bn2.metron.live.com.nsatc.net"
