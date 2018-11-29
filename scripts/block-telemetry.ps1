@@ -140,7 +140,7 @@ $domains = @(
     "www.msftncsi.com"
     "client.wns.windows.com"
     "wdcp.microsoft.com"
-    "dns.msftncsi.com"
+    # "dns.msftncsi.com" # This causes Windows to think it doesn't have internet
     #"storeedgefd.dsx.mp.microsoft.com" # breaks Windows Store
     "wdcpalt.microsoft.com"
     "settings-ssl.xboxlive.com"
@@ -189,7 +189,7 @@ $domains = @(
     # can cause issues with Skype (#79) or other services (#171)
     "apps.skype.com"
     "c.msn.com"
-    "login.live.com"
+    # "login.live.com" Can't login to outlook and other live apps
     "pricelist.skype.com"
     "s.gateway.messenger.live.com"
     "ui.skype.com"
