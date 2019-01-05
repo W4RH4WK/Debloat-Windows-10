@@ -46,6 +46,7 @@ $apps = @(
     "Microsoft.XboxGameOverlay"
     "Microsoft.XboxGamingOverlay"
     "Microsoft.XboxSpeechToTextOverlay"
+    "Microsoft.Xbox.TCUI"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     
@@ -112,6 +113,11 @@ $apps = @(
     "WinZipComputing.WinZipUniversal"
     "CAF9E577.Plex"  
     "7EE7776C.LinkedInforWindows"
+    "613EBCEA.PolarrPhotoEditorAcademicEdition"
+    "Fitbit.FitbitCoach"
+    "DolbyLaboratories.DolbyAccess"
+    "Microsoft.BingNews"
+    "NORDCURRENT.COOKINGFEVER"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
