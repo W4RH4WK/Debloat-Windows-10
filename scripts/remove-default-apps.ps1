@@ -13,7 +13,6 @@ $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
     "Microsoft.Appconnector"
-    "Microsoft.Advertising.Xaml" 
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
@@ -127,6 +126,9 @@ $apps = @(
     #"Microsoft.XboxGameCallableUI"
     #"Microsoft.XboxIdentityProvider"
     #"Windows.ContactSupport"
+
+    # apps which other apps depend on
+    "Microsoft.Advertising.Xaml"
 )
 
 foreach ($app in $apps) {
