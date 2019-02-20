@@ -108,6 +108,11 @@ Skype. I highly disencourage using Skype, however some people may not have
 the option to use an alternative. See the
 [#79](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
 
+### Fingerprint Reader / Facial Detection not Working
+
+Ensure *Windows Biometric Service* is running. See
+[#189](https://github.com/W4RH4WK/Debloat-Windows-10/issues/189).
+
 ## Liability
 
 **All scripts are provided as is and you use them at your own risk.**
