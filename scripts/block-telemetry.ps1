@@ -107,7 +107,7 @@ $domains = @(
     "settings-sandbox.data.microsoft.com"
     "settings-win.data.microsoft.com"
     "sls.update.microsoft.com.akadns.net"
-    "sls.update.microsoft.com.nsatc.net"
+    #"sls.update.microsoft.com.nsatc.net"    # may cause issues with Windows Updates
     "sqm.df.telemetry.microsoft.com"
     "sqm.telemetry.microsoft.com"
     "sqm.telemetry.microsoft.com.nsatc.net"
@@ -139,9 +139,9 @@ $domains = @(
     "www.go.microsoft.akadns.net"
     "www.msftncsi.com"
     "client.wns.windows.com"
-    "wdcp.microsoft.com"
-    # "dns.msftncsi.com" # This causes Windows to think it doesn't have internet
-    #"storeedgefd.dsx.mp.microsoft.com" # breaks Windows Store
+    #"wdcp.microsoft.com"                       # may cause issues with Windows Defender Cloud-based protection
+    #"dns.msftncsi.com"                         # This causes Windows to think it doesn't have internet
+    #"storeedgefd.dsx.mp.microsoft.com"         # breaks Windows Store
     "wdcpalt.microsoft.com"
     "settings-ssl.xboxlive.com"
     "settings-ssl.xboxlive.com-c.edgekey.net"
@@ -151,7 +151,7 @@ $domains = @(
     "insiderservice.trafficmanager.net"
     "e3843.g.akamaiedge.net"
     "flightingserviceweurope.cloudapp.net"
-    "sls.update.microsoft.com"
+    #"sls.update.microsoft.com"                 # may cause issues with Windows Updates
     "static.ads-twitter.com"
     "www-google-analytics.l.google.com"
     "p.static.ads-twitter.com"
@@ -160,8 +160,8 @@ $domains = @(
 
     #"www.google-analytics.com"
     #"padgead2.googlesyndication.com"
-	#"mirror1.malwaredomains.com"
-	#"mirror.cedia.org.ec"
+    #"mirror1.malwaredomains.com"
+    #"mirror.cedia.org.ec"
     "stats.g.doubleclick.net"
     "stats.l.doubleclick.net"
     "adservice.google.de"
@@ -169,9 +169,8 @@ $domains = @(
     "googleads.g.doubleclick.net"
     "pagead46.l.doubleclick.net"
     "hubspot.net.edgekey.net"
-    "insiderppe.cloudapp.net" # Feedback-Hub
+    "insiderppe.cloudapp.net"                   # Feedback-Hub
     "livetileedge.dsx.mp.microsoft.com"
-    
 
     # extra
     "fe2.update.microsoft.com.akadns.net"
@@ -189,7 +188,7 @@ $domains = @(
     # can cause issues with Skype (#79) or other services (#171)
     "apps.skype.com"
     "c.msn.com"
-    # "login.live.com" Can't login to outlook and other live apps
+    # "login.live.com"                  # prevents login to outlook and other live apps
     "pricelist.skype.com"
     "s.gateway.messenger.live.com"
     "ui.skype.com"
