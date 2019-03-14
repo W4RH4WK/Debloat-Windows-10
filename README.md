@@ -49,7 +49,7 @@ Unblock PowerShell scripts and modules within this directory:
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the scripts from a PowerShell with administrator priviledges (Explorer
+3. Run the scripts from a PowerShell with administrator privileges (Explorer
    `Files > Open Windows PowerShell > Open Windows PowerShell as
    administrator`)
 4. `PS > Restart-Computer`
