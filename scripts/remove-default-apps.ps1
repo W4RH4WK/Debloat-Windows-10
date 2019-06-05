@@ -21,10 +21,10 @@ $apps = @(
     #"Microsoft.FreshPaint"
     "Microsoft.Microsoft3DViewer"
     "Microsoft.MicrosoftOfficeHub"
-    "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MinecraftUWP"
+    "Microsoft.MicrosoftSolitaireCollection"
     #"Microsoft.MicrosoftStickyNotes"
+    "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
     "Microsoft.Office.OneNote"
     #"Microsoft.OneConnect"
@@ -41,15 +41,14 @@ $apps = @(
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"   # can't be re-installed
+    "Microsoft.Xbox.TCUI"
     "Microsoft.XboxApp"
     "Microsoft.XboxGameOverlay"
     "Microsoft.XboxGamingOverlay"
     "Microsoft.XboxSpeechToTextOverlay"
-    "Microsoft.Xbox.TCUI"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
-    
-    
+
     # Threshold 2 apps
     "Microsoft.CommsPhone"
     "Microsoft.ConnectivityStore"
@@ -66,8 +65,8 @@ $apps = @(
 
     #Redstone apps
     "Microsoft.BingFoodAndDrink"
-    "Microsoft.BingTravel"
     "Microsoft.BingHealthAndFitness"
+    "Microsoft.BingTravel"
     "Microsoft.WindowsReadingList"
 
     # Redstone 5 apps
@@ -77,46 +76,46 @@ $apps = @(
     "Microsoft.YourPhone"
 
     # non-Microsoft
-    "9E2F88E3.Twitter"
-    "PandoraMediaInc.29680B314EFC2"
-    "Flipboard.Flipboard"
-    "ShazamEntertainmentLtd.Shazam"
-    "king.com.CandyCrushSaga"
-    "king.com.CandyCrushSodaSaga"
-    "king.com.BubbleWitch3Saga"
-    "king.com.*"
-    "ClearChannelRadioDigital.iHeartRadio"
-    "4DF9E0F8.Netflix"
-    "6Wunderkinder.Wunderlist"
-    "Drawboard.DrawboardPDF"
     "2FE3CB00.PicsArt-PhotoStudio"
-    "D52A8D61.FarmVille2CountryEscape"
-    "TuneIn.TuneInRadio"
-    "GAMELOFTSA.Asphalt8Airborne"
-    #"TheNewYorkTimes.NYTCrossword"
-    "DB6EA5DB.CyberLinkMediaSuiteEssentials"
-    "Facebook.Facebook"
-    "flaregamesGmbH.RoyalRevolt2"
-    "Playtika.CaesarsSlotsFreeCasino"
-    "A278AB0D.MarchofEmpires"
-    "KeeperSecurityInc.Keeper"
-    "ThumbmunkeysLtd.PhototasticCollage"
-    "XINGAG.XING"
-    "89006A2E.AutodeskSketchBook"
-    "D5EA27B7.Duolingo-LearnLanguagesforFree"
     "46928bounde.EclipseManager"
-    "ActiproSoftwareLLC.562882FEEB491" # next one is for the Code Writer from Actipro Software LLC
-    "DolbyLaboratories.DolbyAccess"
-    "SpotifyAB.SpotifyMusic"
-    "A278AB0D.DisneyMagicKingdoms"
-    "WinZipComputing.WinZipUniversal"
-    "CAF9E577.Plex"  
-    "7EE7776C.LinkedInforWindows"
+    "4DF9E0F8.Netflix"
     "613EBCEA.PolarrPhotoEditorAcademicEdition"
-    "Fitbit.FitbitCoach"
+    "6Wunderkinder.Wunderlist"
+    "7EE7776C.LinkedInforWindows"
+    "89006A2E.AutodeskSketchBook"
+    "9E2F88E3.Twitter"
+    "A278AB0D.DisneyMagicKingdoms"
+    "A278AB0D.MarchofEmpires"
+    "ActiproSoftwareLLC.562882FEEB491" # next one is for the Code Writer from Actipro Software LLC
+    "CAF9E577.Plex"  
+    "ClearChannelRadioDigital.iHeartRadio"
+    "D52A8D61.FarmVille2CountryEscape"
+    "D5EA27B7.Duolingo-LearnLanguagesforFree"
+    "DB6EA5DB.CyberLinkMediaSuiteEssentials"
     "DolbyLaboratories.DolbyAccess"
+    "DolbyLaboratories.DolbyAccess"
+    "Drawboard.DrawboardPDF"
+    "Facebook.Facebook"
+    "Fitbit.FitbitCoach"
+    "Flipboard.Flipboard"
+    "GAMELOFTSA.Asphalt8Airborne"
+    "KeeperSecurityInc.Keeper"
     "Microsoft.BingNews"
     "NORDCURRENT.COOKINGFEVER"
+    "PandoraMediaInc.29680B314EFC2"
+    "Playtika.CaesarsSlotsFreeCasino"
+    "ShazamEntertainmentLtd.Shazam"
+    "SpotifyAB.SpotifyMusic"
+    #"TheNewYorkTimes.NYTCrossword"
+    "ThumbmunkeysLtd.PhototasticCollage"
+    "TuneIn.TuneInRadio"
+    "WinZipComputing.WinZipUniversal"
+    "XINGAG.XING"
+    "flaregamesGmbH.RoyalRevolt2"
+    "king.com.*"
+    "king.com.BubbleWitch3Saga"
+    "king.com.CandyCrushSaga"
+    "king.com.CandyCrushSodaSaga"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -144,18 +143,18 @@ foreach ($app in $apps) {
 
 # Prevents Apps from re-installing
 force-mkdir "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "ContentDeliveryAllowed" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "FeatureManagementEnabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "OemPreInstalledAppsEnabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "PreInstalledAppsEnabled" 0
-Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SilentInstalledAppsEnabled" 0
-Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "ContentDeliveryAllowed" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "PreInstalledAppsEverEnabled" 0
-Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContentEnabled" 0
-Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338388Enabled" 0
-Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338389Enabled" 0
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SilentInstalledAppsEnabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-314559Enabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338387Enabled" 0
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338388Enabled" 0
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338389Enabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338393Enabled" 0
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContentEnabled" 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SystemPaneSuggestionsEnabled" 0
 
 force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore"
