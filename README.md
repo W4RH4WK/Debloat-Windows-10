@@ -49,7 +49,7 @@ Unblock PowerShell scripts and modules within this directory:
 
 1. Install all available updates for your system.
 2. Edit the scripts to fit your need.
-3. Run the scripts from a PowerShell with administrator priviledges (Explorer
+3. Run the scripts from a PowerShell with administrator privileges (Explorer
    `Files > Open Windows PowerShell > Open Windows PowerShell as
    administrator`)
 4. `PS > Restart-Computer`
@@ -100,6 +100,18 @@ Wireless Adapters to stop functioning. I suspenc one should not remove the XBox
 App when wanting to use one. But I haven't confirmed this yet, and there is a
 workaround to re-enable it afterwards. See
 [#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
+
+### Issues with Skype
+
+Some of the domains blocked by adding them to the hosts-file are required for
+Skype. I highly disencourage using Skype, however some people may not have
+the option to use an alternative. See the
+[#79](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
+
+### Fingerprint Reader / Facial Detection not Working
+
+Ensure *Windows Biometric Service* is running. See
+[#189](https://github.com/W4RH4WK/Debloat-Windows-10/issues/189).
 
 ## Liability
 
