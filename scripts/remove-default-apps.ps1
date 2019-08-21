@@ -75,7 +75,6 @@ $apps = @(
     "Microsoft.MixedReality.Portal"
     "Microsoft.ScreenSketch"
     "Microsoft.XboxGamingOverlay"
-    "Microsoft.YourPhone"
 
     # non-Microsoft
     "2FE3CB00.PicsArt-PhotoStudio"
