@@ -19,11 +19,37 @@ $services = @(
     #"WlanSvc"                                 # WLAN AutoConfig
     "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
     "wscsvc"                                   # Windows Security Center Service
-    #"WSearch"                                 # Windows Search
     "XblAuthManager"                           # Xbox Live Auth Manager
     "XblGameSave"                              # Xbox Live Game Save Service
     "XboxNetApiSvc"                            # Xbox Live Networking Service
     "ndu"                                      # Windows Network Data Usage Monitor
+    "SSDPSRV"                                  #SSDP Discovery
+    "lltdsvc"                                  #Link-Layer Topology Discovery Mapper
+    "AXInstSV"                                 #ActiveX Installer
+    "AJRouter"                                 #AllJoyn Router Service
+    "AppReadiness"                             #App Readiness
+    "wlidsvc"                                  #Microsoft Account Sign-in Assistant
+    "SmsRouter"                                #Microsoft Windows SMS
+    "NcdAutoSetup"                             #Network Connected Devicees Auto-Setup
+    "PNRPsvc"                                  #Peer Name Resolution Protocol
+    "p2psvc"                                   #Peer Networking Group
+    "p2pimsvc"                                 #Peer Networking Identity Manager
+    "PNRPAutoReg"                              #PNRP Machine Name Publication Service
+    "WalletService"                            #WalletService
+    "WMPNetworkSvc"                            #Windows Media Player Network Sharing Service
+    "icssvc"                                   #Internet Connection Sharing Service
+    "XblAuthManager"                           #Xbox Live Auth Manager
+    "XblGameSave"                              #Xbox Live Game Save
+    "XboxNetApiSvc"                            #Xbox Net Api
+    "DmEnrollmentSvc"                          #Device Management Enrollment Service
+    "RetailDemo"                               #Retail Demo
+    "LanmanServer"                             #File Print Network Sharing
+    "LanmanWorkstation"                        #Workstation - Remote Server SMB
+    "seclogon"                                 #Secondary Logon
+    "fhsvc"                                    #File History Service
+    "CscService"                               #Offline Files
+    "WbioSrvc"                                 #Windows Biometric Service
+    
     # Services which cannot be disabled
     #"WdNisSvc"
 )
