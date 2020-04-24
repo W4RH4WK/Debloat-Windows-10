@@ -1,4 +1,5 @@
 # Debloat Windows 10
+forked from W4RH4WK (the original author: https://github.com/W4RH4WK/Debloat-Windows-10) 
 
 This project collects PowerShell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
@@ -31,7 +32,7 @@ beforehand. If you want a more interactive approach check out
 Code located in the `master` branch is always considered under development, but
 you'll probably want the most recent version anyway.
 
-- [Download [zip]](https://github.com/W4RH4WK/Debloat-Windows-10/archive/master.zip)
+- [Download [zip]](https://github.com/supmaxi/Debloat-Windows-10/archive/master.zip)
 
 ## Execution
 
