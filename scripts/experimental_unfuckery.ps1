@@ -10,22 +10,22 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 Write-Output "Force removing system apps"
 $needles = @(
-    #"Anytime"
+    "Anytime"
     "BioEnrollment"
-    #"Browser"
+    "Browser"
     "ContactSupport"
     #"Cortana"       # This will disable startmenu search.
-    #"Defender"
+    "Defender"
     "Feedback"
     "Flash"
     "Gaming"
-    #"Holo"
-    #"InternetExplorer"
-    #"Maps"
-    #"MiracastView"
+    "Holo"
+    "InternetExplorer"
+    "Maps"
+    "MiracastView"
     "OneDrive"
     #"SecHealthUI"
-    #"Wallet"
+    "Wallet"
     #"Xbox"          # This will result in a bootloop since upgrade 1511
 )
 
