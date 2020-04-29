@@ -114,19 +114,20 @@ $services = @(
     "camsvc"                                   #Capability Access Manager Service
     "Browser"                                  #unknown
     "BDESVC"                                   #BitLocker Drive Encryption Service
-    "CPDUserSVC"                               #test
-    "CaptureService"                           #test OneCore Capture Service
-    "ConsentUxUserSvc"                         #test Allows ConnectUX and PC Settings to Connect and Pair with WiFi displays and Bluetooth devices.
-    "ContactData"                              #test
-    "cbdhsvc"                                  #test Clipboard User Service
-    "UnistackSvcGroup"                         #test
-    "MessagingService"                         #test
-    "PimIndexMaintenaneSvc"                    #test
-    "BcastDVRUserService"                      #test
-    "PrintWorkflowUserSvc"                     #test
-    "UserDataSvc"                              #test
-    "OneSyncSvc"                               #test
-    "UnistoreSvc"                              #test
+    "tiledatamodelsvc"                         #Tile Data
+    "CPDUserSVC"                               #
+    "CaptureService"                           #OneCore Capture Service
+    "ConsentUxUserSvc"                         #Allows ConnectUX and PC Settings to Connect and Pair with WiFi displays and Bluetooth devices.
+    "ContactData"                              #
+    "cbdhsvc"                                  #Clipboard User Service
+    "UnistackSvcGroup"                         #
+    "MessagingService"                         #
+    "PimIndexMaintenaneSvc"                    #
+    "BcastDVRUserService"                      #
+    "PrintWorkflowUserSvc"                     #
+    "UserDataSvc"                              #
+    "OneSyncSvc"                               #
+    "UnistoreSvc"                              #
     
     # Services which cannot be disabled
     #"WdNisSvc"
