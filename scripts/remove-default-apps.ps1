@@ -11,6 +11,7 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
+    "Microsoft.PPIProjection"
     "Microsoft.3DBuilder"
     "Microsoft.Appconnector"
     "Microsoft.BingFinance"
