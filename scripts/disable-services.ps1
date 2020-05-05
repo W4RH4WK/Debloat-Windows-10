@@ -115,19 +115,23 @@ $services = @(
     "Browser"                                  #unknown
     "BDESVC"                                   #BitLocker Drive Encryption Service
     "tiledatamodelsvc"                         #Tile Data
-    "CPDUserSVC"                               #
-    "CaptureService"                           #OneCore Capture Service
-    "ConsentUxUserSvc"                         #Allows ConnectUX and PC Settings to Connect and Pair with WiFi displays and Bluetooth devices.
-    "ContactData"                              #
     "cbdhsvc"                                  #Clipboard User Service
-    "UnistackSvcGroup"                         #
-    "MessagingService"                         #
-    "PimIndexMaintenaneSvc"                    #
-    "BcastDVRUserService"                      #
-    "PrintWorkflowUserSvc"                     #
-    "UserDataSvc"                              #
-    "OneSyncSvc"                               #
-    "UnistoreSvc"                              #
+    "ConsentUxUserSvc"                         #Allows ConnectUX and PC Settings to Connect and Pair with WiFi displays and Bluetooth devices.
+    "UnistackSvcGroup"                         #hidden services that apparently register and start a subprocess per user as a service
+    "UnistoreSvc"                              #hidden services that apparently register and start a subprocess per user as a service
+    "BluetoothUserService"                     #hidden services that apparently register and start a subprocess per user as a service
+    "CDPUserSvc"                               #hidden services that apparently register and start a subprocess per user as a service
+    "CaptureService"                           #hidden services that apparently register and start a subprocess per user as a service
+    "DevicePickerUserSvc"                      #hidden services that apparently register and start a subprocess per user as a service
+    "DevicesFlowUserSvc"                       #hidden services that apparently register and start a subprocess per user as a service
+    "MessagingService"                         #hidden services that apparently register and start a subprocess per user as a service
+    "PimIndexMaintenanceSvc"                   #hidden services that apparently register and start a subprocess per user as a service
+    "BcastDVRUserService"                      #hidden services that apparently register and start a subprocess per user as a service
+    "PrintWorkflowUserSvc"                     #hidden services that apparently register and start a subprocess per user as a service
+    "UserDataSvc"                              #hidden services that apparently register and start a subprocess per user as a service
+    "OneSyncSvc"                               #hidden services that apparently register and start a subprocess per user as a service
+    "WpnUserService"                           #hidden services that apparently register and start a subprocess per user as a service
+    "UnistoreSvc"                              #hidden services that apparently register and start a subprocess per user as a service
     
     # Services which cannot be disabled
     #"WdNisSvc"
