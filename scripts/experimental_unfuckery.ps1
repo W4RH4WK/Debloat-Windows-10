@@ -1,7 +1,7 @@
 #   Description:
-# This script remove strang looking stuff which will probably result in a break
-# of your system.  It should not be used unless you want to test out a few
-# things. It is named `experimental_unfuckery.ps1` for a reason.
+# This script removes unwanted system packages
+# This script will FULLY REMOVE the packages from your system
+# Use with caution - removed packages may no longer be installable
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
@@ -14,7 +14,7 @@ $needles = @(
     "BioEnrollment"
     "Browser"
     "ContactSupport"
-    #"Cortana"       # This will disable startmenu search.
+    #"Cortana"    # This will disable startmenu search.
     "Defender"
     "Feedback"
     "Flash"
@@ -24,9 +24,9 @@ $needles = @(
     "Maps"
     "MiracastView"
     "OneDrive"
-    #"SecHealthUI"
+    #"SecHealthUI"    # Security Health Dashboard
     "Wallet"
-    #"Xbox"          # This will result in a bootloop since upgrade 1511
+    #"Xbox"    # This will result in a bootloop since upgrade 1511
 )
 
 foreach ($needle in $needles) {
