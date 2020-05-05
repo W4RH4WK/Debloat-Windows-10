@@ -123,6 +123,7 @@ $apps = @(
     # apps which cannot be removed using Remove-AppxPackage
     "Microsoft.BioEnrollment"
     "Microsoft.MicrosoftEdge"
+    "Microsoft.MicrosoftEdgeDevToolsClient"
     #"Microsoft.Windows.Cortana"
     "Microsoft.WindowsFeedback"
     #"Microsoft.XboxGameCallableUI"
