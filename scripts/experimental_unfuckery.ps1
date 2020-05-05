@@ -1,4 +1,4 @@
-#   Description:
+#     Description:
 # This script removes unwanted system packages
 # This script will FULLY REMOVE the packages from your system
 # Use with caution - removed packages may no longer be installable
