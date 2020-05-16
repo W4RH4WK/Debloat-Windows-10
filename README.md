@@ -1,143 +1,62 @@
-# Debloat Windows 10
-forked from W4RH4WK (the original author: https://github.com/W4RH4WK/Debloat-Windows-10) 
-
-This project collects PowerShell scripts which help to *debloat* Windows 10,
-tweak common settings and install basic software components.
-
-I test these scripts on a Windows 10 Professional 64-Bit (English) virtual
-machine. Please let me know if you encounter any issues. Home Edition and
-different languages are not supported. These scripts are intended for
-tech-savvy administrators, who know what they are doing and just want to
-automate this phase of their setup. If this profile does not fit you, I
-recommend using a different (more interactive) tool -- and there are a lot of
-them out there.
-
-Also note that gaming related apps and services will be removed / disabled. If
-you intend to use your system for gaming, adjust the scripts accordingly.
-
-**There is no undo**, I recommend only using these scripts on a fresh
-installation (including Windows Updates). Test everything after running them
-before doing anything else. Also there is no guarantee that everything will
-work after future updates since I cannot predict what Microsoft will do next.
-
-## Interactivity
-
-The scripts are designed to run without any user-interaction. Modify them
-beforehand. If you want a more interactive approach check out
-[DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking) from
-[10se1ucgo](https://github.com/10se1ucgo).
-
-## Download Latest Version
-
-Code located in the `master` branch is always considered under development, but
-you'll probably want the most recent version anyway.
+# Debloat and Secure Windows 10
 
 - [Download [zip]](https://github.com/supmaxi/Debloat-Windows-10/archive/master.zip)
 
-## Execution
+## HOW TO RUN .PS1 (POWERSHELL SCRIPTS) FILES
+Open PowerShell (or PowerShell ISE) as an Administrator
+
+Navigate to the scripts folder of where you have downloaded / extracted the archive, eg:
+
+cd C:\Users\USERNAME\Downloads\Debloat-Windows-10-master\Debloat-Windows-10-master\scripts
 
 Enable execution of PowerShell scripts:
 
-    PS> Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+    Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+    
+    Set-ExecutionPolicy Unrestricted -Force
 
 Unblock PowerShell scripts and modules within this directory:
 
-    PS> ls -Recurse *.ps*1 | Unblock-File
+    ls -Recurse *.ps*1 | Unblock-File
+    
+If you do not do the above, the powershell scripts will not have elevated permissions to do the required tasks, and the majority will fail to work.
 
-## Usage
+Now, you are ready to actually run the scripts one by one:
 
-1. Install all available updates for your system.
-2. Edit the scripts to fit your need.
-3. Run the scripts from a PowerShell with administrator privileges (Explorer
-   `Files > Open Windows PowerShell > Open Windows PowerShell as
-   administrator`)
-4. `PS > Restart-Computer`
-5. Run `disable-windows-defender.ps1` one more time.
-6. `PS > Restart-Computer`
+Type the following: .\SCRIPTNAME.ps1
+where 'SCRIPTNAME' will need to be the actual scripts name, for example: .\disable-services.ps1
 
-## Start menu
+## HOW TO RUN .BAT FILES (CMD SCRIPTS)
+For .bat files, simply right click and 'run as administrator'.
 
-In the past I included small fixes to make the start menu more usable, like
-removing default tiles, disabling web search and so on. This is no longer the
-case since I am that fed up with it. This fucking menu breaks for apparently
-no reason, is slow, is a pain to configure / script and even shows ads out of
-the box!
+## I HAVE USED TOOLS LIKE THESE BEFORE, AND THEY WRECKED MY START / SEARCH MENU , WILL THIS DO THE SAME ??
+NO , i have run every one of these scripts on all my PC's and the Windows start/search is fully intact and responsive, without any issues what so ever. The mistake other tools make is removing a specific cortana module which kills the search bar, we disable cortana without doing that.
 
-Please replace it with something better, either use [Classic Shell] or [Start
-is Back], but stop using that shit.
+## CAUTIONS / WARNINGS / THINGS TO NOTE:
+1. experimental_unfuckery.ps1: Dont be scared to use it - just remember 2 things - (1) removed packages may no longer be installable again (this includes defender). Most other scripts disable things, whereas this removes things. (2) RUN THIS SCRIPT LAST, after you've finished running all the other ones. VERY IMPORTANT!
+2. XBOX: We disable the xbox related services in these scripts, so keep that in mind if you need xbox services (you can always comment out # the lines which affect xbox related scripts to prevent that).
+3. MS STORE: We disable and remove the Microsoft App Store, so keep that in mind if you want to keep the MS App Store (you can always comment out # the lines which affect MS APP Store related scripts to prevent that).
+3. DEFENDER: We disable defender in some scripts, and fully remove defender in experimental_unfuckery.ps1, so keep that in mind if you want to keep the Defender (you can always comment out # the lines which affect Defender related scripts to prevent that).
 
-[Classic Shell]: <http://www.classicshell.net/>
-[Start is Back]: <http://startisback.com/>
+In saying that, i recommend to remove client-side Defender, and run the scripts as they are configured by default (to my personal taste).
 
-## Known Issues
+What to do without defender? Answer = SIMPLEWALL + Group Policy (Windows defender firewall with advanced security) - yes, thats right - youll still have this more powerful 'defender' in group policy
 
-### Start menu Search
+## SIMPLEWALL
+https://www.henrypp.org/product/simplewall
+https://github.com/henrypp/simplewall
 
-After running the scripts, the start menu search-box may no longer work on newly
-created accounts. It seems like there is an issue with account initialization
-that is triggered when disabling the GeoLocation service. Following workaround
-has been discovered by BK from Atlanta:
+Very sophisticated, effective, opensource firewall - which has built in MS telemetry blocking. Highly configurable and simple to use.
 
-1. Delete registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lfsvc\TriggerInfo\3`
-2. Re-enable GeoLocation service (set startup type to `Automatic`)
-3. Reboot
-4. Login with the account having the stated issue
-5. Start Cortana and set your preferences accordingly (web search and whatnot)
+This will replace Defender (which is trash, especially in its firewall area - new rules pop up out of no where, allowing access to things you never gave permission too, all by itself. Even when you disable rules it automatically generated, you will find later that it adds new rules again to bypass your configuration).
 
-You may now disable the GeoLocation service again, the search box should remain
-functional.
+## GROUP POLICY
+Group policy > Windows Settings > Security Settings > Windows Defender Firewall With advanced Security
+This is the 'parent' defender, which can override the standard defender (that we removed). It is a common tactic of malicious actors to take over your machine. If you never configured the group policy defender, they can bypass all your 'standard' defender rules through group policies defender application. So this is a great step to learn how windows really works, and how to secure it properly.
 
-### Sysprep will hang
+You'll also want to configure other security related group policy settings.
 
-If you are deploying images with MDT and running these scripts, the sysprep
-step will hang unless `dmwappushserivce` is active.
+## How about anti-virus?
+See the guide on reddit below, to make your decision. And if you dont feel secure with the options and info presented, then go with a third party AV that doesnt do 'cloud based' protection (or has the option to disable that functionality).
 
-### Xbox Wireless Adapter
-
-Apprently running the stock `remove-default-apps` script will cause Xbox
-Wireless Adapters to stop functioning. I suspect one should not remove the Xbox
-App when wanting to use one. But I haven't confirmed this yet, and there is a
-workaround to re-enable it afterwards. See
-[#78](https://github.com/W4RH4WK/Debloat-Windows-10/issues/78).
-
-### Issues with Skype
-
-Some of the domains blocked by adding them to the hosts-file are required for
-Skype. I highly discourage using Skype, however some people may not have
-the option to use an alternative. See the
-[#79](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
-
-### Fingerprint Reader / Facial Detection not Working
-
-Ensure *Windows Biometric Service* is running. See
-[#189](https://github.com/W4RH4WK/Debloat-Windows-10/issues/189).
-
-## Liability
-
-**All scripts are provided as is and you use them at your own risk.**
-
-## Contribute
-
-I would be happy to extend the collection of scripts. Just open an issue or
-send me a pull request.
-
-### Thanks To
-
-- [10se1ucgo](https://github.com/10se1ucgo)
-- [Plumebit](https://github.com/Plumebit)
-- [aramboi](https://github.com/aramboi)
-- [maci0](https://github.com/maci0)
-- [narutards](https://github.com/narutards)
-- [tumpio](https://github.com/tumpio)
-
-## License
-
-    "THE BEER-WARE LICENSE" (Revision 42):
-
-    As long as you retain this notice you can do whatever you want with this
-    stuff. If we meet some day, and you think this stuff is worth it, you can
-    buy us a beer in return.
-
-    This project is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.
+## Complete Windows 10 Privacy/Security Guide here: https://www.reddit.com/r/privacytoolsIO/comments/fwgvsb/windows_10_best_privacy_practices/
