@@ -91,7 +91,7 @@ functional.
 ### Sysprep will hang
 
 If you are deploying images with MDT and running these scripts, the sysprep
-step will hang unless `dmwappushserivce` is active.
+step will hang unless `dmwappushservice` is active.
 
 ### Xbox Wireless Adapter
 
