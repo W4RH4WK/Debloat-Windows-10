@@ -113,6 +113,10 @@ the option to use an alternative. See the
 Ensure *Windows Biometric Service* is running. See
 [#189](https://github.com/W4RH4WK/Debloat-Windows-10/issues/189).
 
+### Default Administrator Password
+Since accounts will lose their Administrator status and default Administrator account will be enable, the default password will be `*123`. It's suggested to change it for a longer one
+
+
 ## Liability
 
 **All scripts are provided as-is and you use them at your own risk.**
