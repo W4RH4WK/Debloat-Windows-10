@@ -1,8 +1,5 @@
 # Debloat Windows 10
 
-**Important:** There seems to be an issue where sound, brightness settings, and **network** get disabled.
-Please take extra caution and have a look [at the corresponding issue](https://github.com/W4RH4WK/Debloat-Windows-10/issues/270).
-
 This project collects PowerShell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
