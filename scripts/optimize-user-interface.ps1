@@ -28,7 +28,7 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" "UserPreferencesMask" ([byt
 0x1e, 0x06, 0x80, 0x12, 0x00, 0x00, 0x00))
 
 Write-Output "Disable Game DVR and Game Bar"
-New-FolderForced -Path -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR"
+New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR"
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" "AllowgameDVR" 0
 
 Write-Output "Disable easy access keyboard stuff"
