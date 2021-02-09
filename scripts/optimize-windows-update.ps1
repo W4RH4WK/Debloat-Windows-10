@@ -22,9 +22,9 @@ $objSID = New-Object System.Security.Principal.SecurityIdentifier "S-1-1-0"
 $EveryOne = $objSID.Translate( [System.Security.Principal.NTAccount]).Value
 
 
-Write-Output "Disable 'Updates are available' message"
-
-takeown /F "$env:WinDIR\System32\MusNotification.exe"
-icacls "$env:WinDIR\System32\MusNotification.exe" /deny "$($EveryOne):(X)"
-takeown /F "$env:WinDIR\System32\MusNotificationUx.exe"
-icacls "$env:WinDIR\System32\MusNotificationUx.exe" /deny "$($EveryOne):(X)"
+# Write-Output "Disable 'Updates are available' message"
+# 
+# takeown /F "$env:WinDIR\System32\MusNotification.exe"
+# icacls "$env:WinDIR\System32\MusNotification.exe" /deny "$($EveryOne):(X)"
+# takeown /F "$env:WinDIR\System32\MusNotificationUx.exe"
+# icacls "$env:WinDIR\System32\MusNotificationUx.exe" /deny "$($EveryOne):(X)"
