@@ -48,7 +48,7 @@ $apps = @(
     "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.YourPhone"
     # "Microsoft.ZuneMusic"
-    "Microsoft.ZuneVideo"
+    # "Microsoft.ZuneVideo"
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
