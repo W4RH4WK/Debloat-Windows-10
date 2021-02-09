@@ -38,7 +38,7 @@ $apps = @(
     # "Microsoft.WindowsCamera"
     # "microsoft.windowscommunicationsapps"         # Mail & Calendar
     # "Microsoft.WindowsMaps"
-    # "Microsoft.WindowsPhone"
+    "Microsoft.WindowsPhone"
     # "Microsoft.WindowsSoundRecorder"              # Voice Recorder
     # "Microsoft.WindowsStore"                      # Can't be re-installed
     "Microsoft.Xbox.TCUI"
