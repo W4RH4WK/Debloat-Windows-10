@@ -35,7 +35,7 @@ $apps = @(
     # "Microsoft.Windows.Photos"
     # "Microsoft.WindowsAlarms"
     # "Microsoft.WindowsCalculator"
-    "Microsoft.WindowsCamera"
+    # "Microsoft.WindowsCamera"
     # "microsoft.windowscommunicationsapps"         # Mail & Calendar
     # "Microsoft.WindowsMaps"
     # "Microsoft.WindowsPhone"
