@@ -18,13 +18,13 @@ $apps = @(
     "Microsoft.BingSports"
     "Microsoft.BingTranslator"
     "Microsoft.BingWeather"
-    #"Microsoft.FreshPaint"
+    # "Microsoft.FreshPaint"
     "Microsoft.GamingServices"
     "Microsoft.Microsoft3DViewer"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftPowerBIForWindows"
     "Microsoft.MicrosoftSolitaireCollection"
-    #"Microsoft.MicrosoftStickyNotes"
+    # "Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
     "Microsoft.Office.OneNote"
@@ -32,15 +32,15 @@ $apps = @(
     "Microsoft.Print3D"
     "Microsoft.SkypeApp"
     "Microsoft.Wallet"
-    #"Microsoft.Windows.Photos"
+    # "Microsoft.Windows.Photos"
     "Microsoft.WindowsAlarms"
-    #"Microsoft.WindowsCalculator"
+    # "Microsoft.WindowsCalculator"
     "Microsoft.WindowsCamera"
     "microsoft.windowscommunicationsapps"
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
-    #"Microsoft.WindowsStore"   # can't be re-installed
+    # "Microsoft.WindowsStore"   # can't be re-installed
     "Microsoft.Xbox.TCUI"
     "Microsoft.XboxApp"
     "Microsoft.XboxGameOverlay"
@@ -62,7 +62,7 @@ $apps = @(
 
     # Creators Update apps
     "Microsoft.Microsoft3DViewer"
-    #"Microsoft.MSPaint"
+    # "Microsoft.MSPaint"
 
     #Redstone apps
     "Microsoft.BingFoodAndDrink"
@@ -107,7 +107,7 @@ $apps = @(
     "ShazamEntertainmentLtd.Shazam"
     "SlingTVLLC.SlingTV"
     "SpotifyAB.SpotifyMusic"
-    #"TheNewYorkTimes.NYTCrossword"
+    # "TheNewYorkTimes.NYTCrossword"
     "ThumbmunkeysLtd.PhototasticCollage"
     "TuneIn.TuneInRadio"
     "WinZipComputing.WinZipUniversal"
@@ -119,13 +119,13 @@ $apps = @(
     "king.com.CandyCrushSodaSaga"
 
     # apps which cannot be removed using Remove-AppxPackage
-    #"Microsoft.BioEnrollment"
-    #"Microsoft.MicrosoftEdge"
-    #"Microsoft.Windows.Cortana"
-    #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
-    #"Windows.ContactSupport"
+    # "Microsoft.BioEnrollment"
+    # "Microsoft.MicrosoftEdge"
+    # "Microsoft.Windows.Cortana"
+    # "Microsoft.WindowsFeedback"
+    # "Microsoft.XboxGameCallableUI"
+    # "Microsoft.XboxIdentityProvider"
+    # "Windows.ContactSupport"
 
     # apps which other apps depend on
     "Microsoft.Advertising.Xaml"
