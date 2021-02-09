@@ -12,7 +12,7 @@ Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
-    "Microsoft.Appconnector"
+    # "Microsoft.Appconnector"
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
