@@ -1,5 +1,9 @@
 # Debloat Windows 10
 
+[German version (`DE`)](README.de-de.md)
+
+<br>
+
 This project collects PowerShell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
@@ -142,3 +146,7 @@ send me a pull request.
     This project is distributed in the hope that it will be useful, but WITHOUT
     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
     FITNESS FOR A PARTICULAR PURPOSE.
+
+## Translations
+
+* [German](README.de-de.md) (`DE`): [MagicLike](https://github.com/MagicLike)
