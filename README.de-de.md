@@ -62,7 +62,7 @@ Die Skripte können individuell ausgeführt werden, wähle aus, was Du brauchst.
 
 In der Vergangenheit habe Ich kleinere fixes mit einbezogen, um das Startmenü brauchbarer zu machen,
 wie z.B. das Entfernen von Standardkacheln, die Websuche zu deaktivieren und so weiter. Dies ist nicht
-mehr der fall, weil ich die Schnauze voll habe. Dieses verdammte Menü geht ohne Grund kaputt, es ist langsam,
+mehr der Fall, weil ich die Schnauze voll habe. Dieses verdammte Menü geht ohne Grund kaputt, es ist langsam,
 mühsam zu konfigurieren / skripten und zeigt sogar standardmäßig Werbung!
 
 Bitte ersetze es mit etwas besserem wie [Open Shell] oder [Start
@@ -102,7 +102,7 @@ Workaround, um sie anschließend wieder zu aktivieren. Siehe
 
 ### Fehler mit Skype
 
-Ein paar der Somain, die blockiert werden, durch das hinzufügen dieser in die hosts-Datei werden für Skype gebraucht.
+Ein paar der Domains, die blockiert werden, durch das hinzufügen dieser in die hosts-Datei werden für Skype gebraucht.
 Ich rate dringend davon ab, Skype zu verwenden, aber manche Leute haben vielleicht nicht die
 die Möglichkeit, eine Alternative zu verwenden. Siehe
 [#79](https://github.com/W4RH4WK/Debloat-Windows-10/issues/79).
