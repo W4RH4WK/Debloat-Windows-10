@@ -1,6 +1,7 @@
 # Debloat Windows 10
 
-[German version (`DE`)](README.de-de.md)
+### Translations
+[🇩🇪 German version (`DE`)](README.de-de.md)
 
 <br>
 
