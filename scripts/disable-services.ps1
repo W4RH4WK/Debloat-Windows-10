@@ -54,7 +54,7 @@ $services = @(
     "BthAvctpSvc"                                   #Disables AVCTP service (if you use  Bluetooth Audio Device or Wireless Headphones. then don't disable this)
     "FrameServer"                                   #Disables Windows Camera Frame Server(this allows multiple clients to access video frames from camera devices.)
     "Browser"                                       #Disables computer browser
-    "BthAvctpSvc"                                   #AVCTP service (This is Audio Video Control Transport Protocol service.)
+    #"BthAvctpSvc"                                   #AVCTP service (This is Audio Video Control Transport Protocol service.)
     "BDESVC"                                        #Disables bitlocker
     "fhsvc"                                         # Disables File History Service  (Protects user files from accidental loss by copying them to a backup location.)
     "iphlpsvc"                                      #Disables ipv6 but most websites don't use ipv6 they use ipv4     
