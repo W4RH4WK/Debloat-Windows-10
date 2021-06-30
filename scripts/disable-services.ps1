@@ -82,8 +82,6 @@ $services = @(
     "vmicrdv"
     "vmictimesync" 
 
-
-
     # Services which cannot be disabled
     #"WdNisSvc"
 )
@@ -173,7 +171,3 @@ Get-Service vmicheartbeat | Where {$_.status –eq 'running'} |  Stop-Service
 Get-Service vmicvmsession | Where {$_.status –eq 'running'} |  Stop-Service
 Get-Service vmicrdv | Where {$_.status –eq 'running'} |  Stop-Service
 Get-Service vmictimesync | Where {$_.status –eq 'running'} |  Stop-Service
-
-
-
-
