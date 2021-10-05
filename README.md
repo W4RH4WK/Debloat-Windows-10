@@ -1,5 +1,10 @@
 # Debloat Windows 10
 
+**Note about Windows 11:**
+This project does not directly support Windows 11.
+Things might work, or might not work - find out if you are brave.
+Do not expect this project to transition to Windows 11 as the maintainer lacks the time to do so.
+
 This project collects PowerShell scripts which help to *debloat* Windows 10,
 tweak common settings and install basic software components.
 
