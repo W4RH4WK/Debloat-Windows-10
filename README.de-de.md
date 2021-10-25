@@ -5,6 +5,13 @@
 
 <br>
 
+**Hinweis zu Windows 11:**
+Dieses Projekt unterstützt Windows 11 nicht direkt.
+Dinge könnten funktionieren oder auch nicht - finde es heraus, wenn du dir es zutraust.
+Erwarte nicht, dass dieses Projekt auf Windows 11 umgestellt wird, da der Maintainer nicht die Zeit hat, dies zu tun.
+
+<br>
+
 Dieses Projekt sammelt PowerShell Skripte, die helfen um Windows 10 zu *debloaten*,
 häufige Einstellungen zu optimieren und wesentliche Software zu installieren.
 
