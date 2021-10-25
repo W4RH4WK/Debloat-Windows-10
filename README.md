@@ -1,7 +1,15 @@
 # Debloat Windows 10
 
+
 ### Translations
 [🇩🇪 German version (`DE`)](README.de-de.md)
+
+<br>
+
+**Note about Windows 11:**
+This project does not directly support Windows 11.
+Things might work, or might not work - find out if you are brave.
+Do not expect this project to transition to Windows 11 as the maintainer lacks the time to do so.
 
 <br>
 
