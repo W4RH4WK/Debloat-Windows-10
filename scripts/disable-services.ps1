@@ -14,7 +14,7 @@ $services = @(
     "SharedAccess"                             # Internet Connection Sharing (ICS)
     "TrkWks"                                   # Distributed Link Tracking Client
     "WbioSrvc"                                 # Windows Biometric Service (required for Fingerprint reader / facial detection)
-    #"WlanSvc"                                 # WLAN AutoConfig
+    #"WlanSvc"                                 # WLAN AutoConfig (Disabling this can cause issues with wifi connectivity)
     "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
     #"wscsvc"                                  # Windows Security Center Service
     #"WSearch"                                 # Windows Search
