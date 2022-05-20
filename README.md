@@ -24,6 +24,10 @@ installation (including Windows Updates). Test everything after running them
 before doing anything else. Also, there is no guarantee that everything will
 work after future updates since I cannot predict what Microsoft will do next.
 
+## Translations
+
+- [Fork with German version](https://github.com/MagicLike/Debloat-Windows-10/blob/master/README.de-de.md)
+
 ## Interactivity
 
 The scripts are designed to run without any user interaction. Modify them
