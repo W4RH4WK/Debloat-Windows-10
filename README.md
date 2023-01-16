@@ -1,5 +1,10 @@
 # Debloat Windows 10
 
+**ATTENTION!**
+Apparently there is an issue where running the scripts results in a broken user account / system.
+So far, there is only little information what actually causes this.
+See the [corresponding issue](https://github.com/W4RH4WK/Debloat-Windows-10/issues/306).
+
 **Note about Windows 11:**
 This project does not directly support Windows 11.
 Things might work, or might not work - find out if you are brave.
