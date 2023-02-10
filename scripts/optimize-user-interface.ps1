@@ -57,8 +57,8 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 
 # This removes the "Trending Searches" results shown when you click on the windows search bar
 Write-Output "Disabling Trending Searches"
-New-FolderForced -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer"
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" "DisableSearchBoxSuggestions" 1
+New-FolderForced -Path "HKLM:\Software\Policies\Microsoft\Windows\Explorer"
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Explorer" "DisableSearchBoxSuggestions" 1
 
 Write-Output "Removing user folders under This PC"
 # Remove Desktop from This PC
