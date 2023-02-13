@@ -32,6 +32,12 @@ foreach ($domain in $domains)
 
 Write-Output "Adding telemetry ips to firewall"
 $ips = @(Get-Content $PSScriptRoot\..\blocklists\telemetry-ips.txt)
+$ips = foreach ($ip in $ips) {
+    if ($ip -notlike "#*" -and $ip -ne "" -and $ip -ne $null) {
+        $ip
+    }
+}
+
 Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue
 New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips)
