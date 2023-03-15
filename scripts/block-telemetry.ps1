@@ -240,3 +240,16 @@ $ips = @(
 Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue
 New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips)
+
+# Block scheduled telemetry tasks
+# See reference: https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/permanently-disabling-windows-compatibility/6bf71583-81b0-4a74-ae2e-8fd73305aad1
+$tasks = @(
+    "\Mircorosft\Windows\Application Experience\Microsoft Compatibility Appraiser"
+    "\Mircorosft\Windows\Application Experience\ProgramDataUpdater"
+    "\Mircorosft\Windows\Application Experience\StartupAppTask"
+    "\Mircorosft\Windows\Application Experience\PcaPathDbTask"
+)
+
+foreach ($task in $tasks) {
+   Disable-ScheduledTask -TaskName $task
+}
