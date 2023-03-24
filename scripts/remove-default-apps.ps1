@@ -169,3 +169,6 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDow
 # Prevents "Suggested Applications" returning
 New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
+
+#Remove AppxPackages
+Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
