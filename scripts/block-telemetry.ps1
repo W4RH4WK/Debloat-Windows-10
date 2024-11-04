@@ -248,6 +248,8 @@ $tasks = @(
     "\Microsoft\Windows\Application Experience\ProgramDataUpdater"
     "\Microsoft\Windows\Application Experience\StartupAppTask"
     "\Microsoft\Windows\Application Experience\PcaPatchDbTask"
+    "\Microsoft\Office\OfficeTelemetryAgentFallBack"
+    "\Microsoft\Office\OfficeTelemetryAgentLogOn"
 )
 
 foreach ($task in $tasks) {
